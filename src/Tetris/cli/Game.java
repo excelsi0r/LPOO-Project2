@@ -1,18 +1,12 @@
 package Tetris.cli;
 
-import Tetris.logic.Table;
+import Tetris.logic.Tetris;
 
 public class Game {
 
-	
-	private Table table;
-
 	public static void main(String[] args) 
 	{
-		
-
+		Tetris.startGame();
 	}
-	
-	
 
 }
