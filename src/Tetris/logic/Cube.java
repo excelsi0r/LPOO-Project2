@@ -42,6 +42,10 @@ public class Cube {
 		this.elem = elem;
 	}
 
+	public void setPosition(int x, int y){
+		posX = x;
+		posY = y;
+	}
 	/**
 	 * @return the posX
 	 */
@@ -50,24 +54,10 @@ public class Cube {
 	}
 
 	/**
-	 * @param posX the posX to set
-	 */
-	public void setPosX(int posX) {
-		this.posX = posX;
-	}
-
-	/**
 	 * @return the posY
 	 */
 	public int getPosY() {
 		return posY;
-	}
-
-	/**
-	 * @param posY the posY to set
-	 */
-	public void setPosY(int posY) {
-		this.posY = posY;
 	}
 
 	@Override

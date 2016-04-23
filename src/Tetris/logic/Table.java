@@ -38,7 +38,7 @@ public class Table {
 	public Table(Table table) {
 		this.table = getTable();
 	}
-	
+
 	/**
 	 * @return the table
 	 */

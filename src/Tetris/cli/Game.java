@@ -6,7 +6,8 @@ public class Game {
 
 	public static void main(String[] args) 
 	{
-		Tetris.startGame();
+		Tetris tetris = new Tetris();
+		tetris.startGame();
 	}
 
 }

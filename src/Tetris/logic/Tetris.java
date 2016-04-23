@@ -2,12 +2,9 @@ package Tetris.logic;
 
 public class Tetris 
 {
-	private Tetramino first;
-	private Tetramino second;
+	
 	static private int score = 0;
 	static private int level = 0;
-
-
 
 	/**
 	 * @param table
@@ -16,11 +13,7 @@ public class Tetris
 	 * @param score
 	 * @param level
 	 */
-	public Tetris(Tetramino first, Tetramino second) {
-		super();
-		this.first = first;
-		this.second = second;
-	}
+	public Tetris() {}
 
 	/**
 	 * @return the level
@@ -43,7 +36,19 @@ public class Tetris
 		return score;
 	}
 
-	public static void startGame(){
+	public void startGame(){
+		Cube cube1, cube2, cube3, cube4;
+		cube1 = new Cube();
+		cube2 = new Cube();
+		cube3 = new Cube();
+		cube4 = new Cube();
+		cube1.setPosition(2, 2);
+		cube2.setPosition(2, 3);
+		cube3.setPosition(3, 3);
+		cube4.setPosition(3, 4);
+
+		Tetramino first = new TetraS(cube1,cube2,cube3,cube4);
+		
 		System.out.println(new Table());
 	}
 	
