@@ -1,20 +1,27 @@
-package Tetris.logic;
+package tetris.logic;
 
 public class TetraS extends Tetramino{
-
-	public TetraS(Cube cube1, Cube cube2, Cube cube3, Cube cube4) {
-		super(cube1, cube2, cube3, cube4);
-	}
-
-	@Override
-	public void rotate() {
-		
+	
+	public TetraS(){
+		super();
 	}
 	
-	public String toString(){
-		StringBuilder sb = new StringBuilder();
-		sb.append(super.toString());
-		return sb.toString();
+	public Cube[] cubesPos(){
+		
+		int xPos = (Table.tableBoard[0].length/2) - 1;
+		int yPos = 1;
+		
+		cube[0] = new Cube(yPos, xPos);
+		cube[1] = new Cube(yPos+1, xPos);
+		cube[2] = new Cube(yPos+1, xPos+1);
+		cube[3] = new Cube(yPos+2, xPos+1);
+		
+		return cube;
+	}
+	
+	public void drawTetraS(){	
+		cube = cubesPos();
+		Table.drawCubes(cube);
 	}
 
 }

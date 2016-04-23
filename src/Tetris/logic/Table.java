@@ -1,78 +1,45 @@
-package Tetris.logic;
+package tetris.logic;
+import java.util.Arrays;
+
 
 public class Table {
 	
-	private char table[][] = {
-			{'@','@','@','@','@','@','@','@','@','@','@','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','@'},
-			{'@','@','@','@','@','@','@','@','@','@','@','@'},};
+	static char[][] tableBoard = new char[20][12];
 	
-	
-	public Table(){}
-
-	/**
-	 * @param table
-	 */
-	public Table(char[][] table) {
-		super();
-		this.table = table;
-	}
-	
-	public Table(Table table) {
-		this.table = getTable();
-	}
-
-	/**
-	 * @return the table
-	 */
-	public char[][] getTable() {
-		return table;
-	}
-
-	/**
-	 * @param table the table to set
-	 */
-	public void setTable(char[][] table) {
-		this.table = table;
-	}
-
-	/**
-	 * @Override toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		for (int y = 0; y < table.length; y++) {
-			for (int x = 0; x < table[0].length; x++) {
-				sb.append(table[y][x] + " ");
-			}
-			sb.append("\n");
+	public static void buildTable(){
+		for(char[] row : tableBoard){
+			Arrays.fill(row, ' ');
 		}
-		return sb.toString();
 	}
 	
-	/**
-	 * @Override clone()
-	 */
-	public Table clone(){
-		return new Table(this);
+	private static void tableBoarders(){
+		int x = 0;
+		while (x < tableBoard[0].length) {
+			System.out.print('&' + " ");
+			x++;
+		}	
+	}
+	
+	public static void drawTable(){
+		
+		tableBoarders();
+		for(int y = 0; y < tableBoard.length; y++){
+			for(int x = 0; x < tableBoard[0].length; x++){
+				System.out.print(tableBoard[y][x] + " ");
+			}
+			System.out.println();
+		}
+		tableBoarders();
+		
+	}
+	
+	public static void drawCubes(Cube[] cube){
+		
+		tableBoard[cube[0].getPosY()][cube[0].getPosX()] = cube[0].getSymbol();
+		tableBoard[cube[1].getPosY()][cube[1].getPosX()] = cube[1].getSymbol();
+		tableBoard[cube[2].getPosY()][cube[2].getPosX()] = cube[2].getSymbol();
+		tableBoard[cube[3].getPosY()][cube[3].getPosX()] = cube[3].getSymbol();
+		
 	}
 
 }
