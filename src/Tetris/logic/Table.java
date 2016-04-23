@@ -15,7 +15,7 @@ public class Table {
 	private static void tableBoarders(){
 		int x = 0;
 		while (x < tableBoard[0].length) {
-			System.out.print('&' + " ");
+			System.out.print('º' + " ");
 			x++;
 		}	
 	}
