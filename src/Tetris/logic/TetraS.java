@@ -6,7 +6,7 @@ public class TetraS extends Tetramino{
 		super();
 	}
 	
-	public Cube[] cubesPos(){
+	private Cube[] cubesPos(){
 		
 		int xPos = (Table.tableBoard[0].length/2) - 1;
 		int yPos = 1;
@@ -18,10 +18,11 @@ public class TetraS extends Tetramino{
 		
 		return cube;
 	}
-	
-	public void drawTetraS(){	
+
+	@Override
+	public void drawTetra() {
 		cube = cubesPos();
-		Table.drawCubes(cube);
+		Table.drawCubes(cube);		
 	}
 
 }

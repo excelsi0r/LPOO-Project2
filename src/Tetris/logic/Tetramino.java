@@ -1,6 +1,6 @@
 package Tetris.logic;
 
-public class Tetramino {
+public abstract class Tetramino {
 
 	Cube[] cube = new Cube[4];
 
@@ -9,5 +9,7 @@ public class Tetramino {
 	public Cube[] getCube() {
 		return cube;
 	}
+
+	public abstract void drawTetra();
 	
 }
