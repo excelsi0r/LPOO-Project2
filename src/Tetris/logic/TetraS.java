@@ -1,4 +1,4 @@
-package tetris.logic;
+package Tetris.logic;
 
 public class TetraS extends Tetramino{
 	

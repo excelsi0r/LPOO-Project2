@@ -1,7 +1,7 @@
-package tetris.cli;
+package Tetris.cli;
 
-import tetris.logic.Table;
-import tetris.logic.TetraS;
+import Tetris.logic.TetraS;
+import Tetris.logic.Table;
 
 public class Game {
 

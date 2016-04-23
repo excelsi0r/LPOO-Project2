@@ -1,4 +1,4 @@
-package tetris.logic;
+package Tetris.logic;
 import java.util.Arrays;
 
 
