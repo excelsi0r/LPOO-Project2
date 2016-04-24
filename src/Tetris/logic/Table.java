@@ -8,7 +8,7 @@ public class Table {
 	
 	public static void buildTable(){
 		for(char[] row : tableBoard){
-			Arrays.fill(row, ' ');
+			Arrays.fill(row, '*');
 		}
 	}
 	
@@ -23,6 +23,7 @@ public class Table {
 	public static void drawTable(){
 		
 		tableBoarders();
+		System.out.println();
 		for(int y = 0; y < tableBoard.length; y++){
 			for(int x = 0; x < tableBoard[0].length; x++){
 				System.out.print(tableBoard[y][x] + " ");

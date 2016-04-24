@@ -25,8 +25,8 @@ public class Game {
 		//tetraS.drawTetra();
 		//tetraL.drawTetra();
 		//tetraJ.drawTetra();
-		//tetraT.drawTetra();
-		tetraZ.drawTetra();
+		tetraT.drawTetra();
+		//tetraZ.drawTetra();
 		//tetraI.drawTetra();
 		//tetraO.drawTetra();
 		Table.drawTable();
