@@ -2,7 +2,8 @@ package Tetris.logic;
 
 public class TetraI extends Tetramino{
 	
-	public TetraI(){
+	public TetraI()
+	{
 		super();
 	}
 	

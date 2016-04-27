@@ -1,15 +1,18 @@
 package Tetris.logic;
 
+import java.util.ArrayList;
+
 public abstract class Tetramino {
 
-	Cube[] cube = new Cube[4];
+	ArrayList<Cube> cubesTetra;
 
 	public Tetramino() {}
 
-	public Cube[] getCube() {
-		return cube;
-	}
-
 	public abstract void drawTetra();
+	
+	public ArrayList<Cube> getCubes()
+	{
+		return cubesTetra;
+	}
 	
 }
