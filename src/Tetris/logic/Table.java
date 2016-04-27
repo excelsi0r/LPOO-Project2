@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Table {
 	
-	static char[][] tableBoard = new char[20][12];
+	static char[][] tableBoard = new char[18][10];
 	
 	public static void buildTable(){
 		for(char[] row : tableBoard){
