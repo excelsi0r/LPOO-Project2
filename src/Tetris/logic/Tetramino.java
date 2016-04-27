@@ -8,11 +8,5 @@ public abstract class Tetramino {
 
 	public Tetramino() {}
 
-	public abstract void drawTetra();
-	
-	public ArrayList<Cube> getCubes()
-	{
-		return cubesTetra;
-	}
-	
+	public abstract ArrayList<Cube> drawTetra();	
 }

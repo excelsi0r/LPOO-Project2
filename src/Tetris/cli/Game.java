@@ -18,20 +18,21 @@ public class Game {
 	public static void main(String[] args) 
 	{
 		Scanner s = new Scanner(System.in);
-		Tetramino tetra1 = new TetraS();
+		
+		Tetramino tetra1 = new TetraI();
 		Tetramino tetra2 = new TetraL();
 
-		Table.buildTable('o');
-		
+		Table.buildTable('\43');
 		
 		char c;
 		do
 		{
-		
-			Table.drawTable();
+			Table.drawTable(tetra1);
 			System.out.println();
 			
 			c = s.next().charAt(0);
 		}while(c != 'f');
+		
+		s.close();
 	}
 }

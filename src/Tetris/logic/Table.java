@@ -5,63 +5,56 @@ import java.util.Arrays;
 
 public class Table 
 {
-	
-	char[][] tableBoard = new char[18][10];
-	
-	ArrayList<Cube> cubesStored;
-	
-	public void buildTable(char c)
+	public static final char[][] tableBoard = new char[18][10];
+
+	static ArrayList<Cube> cubesStored;
+
+	public static void buildTable(char tableSurface)
 	{
 		for(char[] row : tableBoard)
 		{
-			Arrays.fill(row, c);
+			Arrays.fill(row, tableSurface);
 		}
 	}
-	
-	public void drawTable(Tetramino tetra)
+
+	public static void drawTable(Tetramino tetra)
 	{
-		char[][] tabletemp = tableBoard;
-		drawCubesStored(tabletemp);
-		drawTetramino(tabletemp, tetra);
-		printTable(tabletemp);
+		char[][] tempTable = tableBoard;
+		drawCubesStored(tempTable);
+		drawTetramino(tempTable, tetra);
+		printTable(tempTable);
 	}
 	
-	
-
-
-	private void drawCubesStored(char [][] tabletemp)
+	private static void drawCubesStored(char [][] table)
 	{
 		for(int i = 0; i < cubesStored.size(); i++)
 		{
-			drawCube(tabletemp, cubesStored.get(i));
+			drawCube(table, cubesStored.get(i));
 		}
 	}
 	
-	
-	
-	private void drawTetramino(char[][] tabletemp, Tetramino tetra) 
+	private static void drawCube(char[][] table, Cube cube)
 	{
-		ArrayList<Cube> cubeTetraTemp = tetra.getCubes();
+		table[cube.getPosY()][cube.getPosX()] = cube.getSymbol();
+	}
+	
+	private static void drawTetramino(char[][] table, Tetramino tetra) 
+	{
+		ArrayList<Cube> cubeTetraTemp = tetra.drawTetra();
 		
 		for(int i = 0; i < cubeTetraTemp.size(); i++)
 		{
-			drawCube(tabletemp, cubeTetraTemp.get(i));
+			drawCube(table, cubeTetraTemp.get(i));
 		}
-		
 	}
-	
 
-	private void drawCube(char[][] tabletemp, Cube c)
+	private static void printTable(char[][] tempTable) 
 	{
-		tabletemp[c.getPosY()][c.getPosX()] = c.getSymbol();
+		for (int y = 0; y < tableBoard.length; y++) {
+			for(int x = 0; x < tableBoard[0].length; x++){
+				System.out.println(tempTable[y][x] + " ");
+			}
+			System.out.println();
+		}
 	}
-	
-	private void printTable(char[][] tabletemp) 
-	{
-		
-	}
-	
-	
-	
-
 }

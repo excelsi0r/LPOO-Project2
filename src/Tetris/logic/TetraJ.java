@@ -1,27 +1,23 @@
 package Tetris.logic;
 
+import java.util.ArrayList;
+
 public class TetraJ extends Tetramino{
 
 	public TetraJ(){
 		super();
 	}
 	
-	private Cube[] cubesPos(){
+	public ArrayList<Cube> drawTetra(){
 		
 		int xPos = (Table.tableBoard[0].length/2) - 1;
 		int yPos = 0;
+		cubesTetra.add(new Cube(yPos, xPos));
+		cubesTetra.add(new Cube(yPos, xPos-1));
+		cubesTetra.add(new Cube(yPos, xPos+1));
+		cubesTetra.add(new Cube(yPos+1, xPos+1));	
 		
-		cube[0] = new Cube(yPos, xPos);
-		cube[1] = new Cube(yPos, xPos-1);
-		cube[2] = new Cube(yPos, xPos+1);
-		cube[3] = new Cube(yPos+1, xPos+1);
-		
-		return cube;
+		return cubesTetra;
 	}
 	
-	@Override
-	public void drawTetra() {
-		cube = cubesPos();
-		Table.drawCubes(cube);	
-	}
 }
