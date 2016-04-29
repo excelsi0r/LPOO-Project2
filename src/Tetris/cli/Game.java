@@ -21,13 +21,13 @@ public class Game {
 		
 		Tetramino tetra1 = new TetraI();
 		Tetramino tetra2 = new TetraL();
-
-		Table.buildTable('\43');
+		
+		Table table = new Table();
 		
 		char c;
 		do
 		{
-			Table.drawTable(tetra1);
+			table.drawTable(tetra1);
 			System.out.println();
 			
 			c = s.next().charAt(0);

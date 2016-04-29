@@ -2,30 +2,51 @@ package Tetris.logic;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.omg.CORBA.FREE_MEM;
+
+
 
 public class Table 
 {
-	public static final char[][] tableBoard = new char[18][10];
+	
+	public final static int HEIGHT = 18;
+	public final static int WIDTH = 10;
+	
+	
+	public static char TABLESURFACE =  '*';
+	public static char TABLEBOARDERS =  '$';
+	private ArrayList<Cube> cubesStored;
+	
+	public Table()
+	{
+		cubesStored = new ArrayList<Cube>();
+	};
+	
+	public void drawTable(Tetramino tetra)
+	{
+		char[][] tempTable = new char[HEIGHT][WIDTH];
+		buildTable(tempTable);
+		drawCubesStored(tempTable);
+		drawTetramino(tempTable, tetra);
+		printTable(tempTable, tempTable);
+	}
 
-	static ArrayList<Cube> cubesStored;
-
-	public static void buildTable(char tableSurface)
+	private void buildTable(char[][] tableBoard)
 	{
 		for(char[] row : tableBoard)
 		{
-			Arrays.fill(row, tableSurface);
+			Arrays.fill(row, TABLESURFACE);
 		}
 	}
-
-	public static void drawTable(Tetramino tetra)
+	
+	private void buildBorders()
 	{
-		char[][] tempTable = tableBoard;
-		drawCubesStored(tempTable);
-		drawTetramino(tempTable, tetra);
-		printTable(tempTable);
+		for (int i = 0; i < WIDTH; i++ ) {
+			System.out.print(TABLEBOARDERS + " ");
+		}
 	}
 	
-	private static void drawCubesStored(char [][] table)
+	private void drawCubesStored(char [][] table)
 	{
 		for(int i = 0; i < cubesStored.size(); i++)
 		{
@@ -33,12 +54,12 @@ public class Table
 		}
 	}
 	
-	private static void drawCube(char[][] table, Cube cube)
+	private void drawCube(char[][] table, Cube cube)
 	{
 		table[cube.getPosY()][cube.getPosX()] = cube.getSymbol();
 	}
 	
-	private static void drawTetramino(char[][] table, Tetramino tetra) 
+	private void drawTetramino(char[][] table, Tetramino tetra) 
 	{
 		ArrayList<Cube> cubeTetraTemp = tetra.drawTetra();
 		
@@ -48,13 +69,16 @@ public class Table
 		}
 	}
 
-	private static void printTable(char[][] tempTable) 
+	private void printTable(char[][] tempTable, char[][] tableBoard) 
 	{
-		for (int y = 0; y < tableBoard.length; y++) {
-			for(int x = 0; x < tableBoard[0].length; x++){
-				System.out.println(tempTable[y][x] + " ");
+		buildBorders();
+		System.out.println();
+		for (int y = 0; y < HEIGHT; y++) {
+			for(int x = 0; x < WIDTH; x++){
+				System.out.print(tableBoard[y][x] + " ");
 			}
 			System.out.println();
 		}
+		buildBorders();
 	}
 }
