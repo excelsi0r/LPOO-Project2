@@ -1,7 +1,5 @@
 package Tetris.logic;
 
-import java.util.ArrayList;
-
 public class TetraL extends Tetramino{
 
 	public TetraL()

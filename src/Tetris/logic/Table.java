@@ -2,10 +2,6 @@ package Tetris.logic;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.omg.CORBA.FREE_MEM;
-
-
-
 public class Table 
 {
 	
