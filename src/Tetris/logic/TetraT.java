@@ -16,5 +16,7 @@ public class TetraT extends Tetramino
 		cubesTetra.add(new Cube(yPos, xPos+1));
 		cubesTetra.add(new Cube(yPos, xPos-1));
 		cubesTetra.add(new Cube(yPos+1, xPos));	
+		
+		type = Type.T;
 	}
 }

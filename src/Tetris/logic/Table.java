@@ -15,6 +15,7 @@ public class Table
 	
 	public static char TABLESURFACE =  '*';
 	public static char TABLEBOARDERS =  '$';
+	
 	private ArrayList<Cube> cubesStored;
 	
 	public Table()
@@ -80,5 +81,21 @@ public class Table
 			System.out.println();
 		}
 		buildBorders();
+	}
+	
+	public boolean searchCube(int x, int y)
+	{
+		for(int i = 0; i < cubesStored.size(); i++)
+		{
+			if(cubesStored.get(i).getPosX() == x && cubesStored.get(i).getPosY() == y)
+				return true;
+		}
+		
+		return false;
+	}
+	
+	public ArrayList<Cube> getCubes()
+	{
+		return cubesStored;
 	}
 }

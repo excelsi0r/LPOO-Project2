@@ -15,6 +15,8 @@ public class TetraI extends Tetramino{
 		cubesTetra.add(new Cube(yPos, xPos+1));
 		cubesTetra.add(new Cube(yPos, xPos+2));
 		cubesTetra.add(new Cube(yPos, xPos-1));
+		
+		type = Type.I;
 	}
 
 }
