@@ -16,5 +16,5 @@ public class TetraI extends Tetramino{
 		
 		type = Type.I;
 	}
-
+	
 }

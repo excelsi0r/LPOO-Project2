@@ -24,6 +24,12 @@ public class Cube {
 		posY = y;
 	}
 
+	public Cube(Cube cube) {
+		symbol = cube.getSymbol();
+		posX = cube.getPosX();
+		posY = cube.getPosY();
+	}
+
 	public void setPosXandY(int posY, int posX) 
 	{
 		this.posX = posX;
@@ -65,6 +71,14 @@ public class Cube {
 		this.posX += 1;
 	}
 	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append(symbol);
+		return sb.toString();
+	}
 	
+	public Cube clone(){
+		return new Cube(this);
+	}
 	
 }

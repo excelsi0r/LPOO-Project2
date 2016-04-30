@@ -4,15 +4,20 @@ import java.util.ArrayList;
 
 public class Tetramino 
 {
-	static enum Type {J, I, T, L, O, Z, S}; 
-	
+	protected static enum Type {J, I, T, L, O, Z, S}; 
 	protected Type type;
 	protected ArrayList<Cube> cubesTetra;
 	
 	public Tetramino()
 	{
 		cubesTetra = new ArrayList<Cube>();
-	};
+	}
+
+	public Tetramino(Tetramino tetra) 
+	{
+		cubesTetra = new ArrayList<Cube>();
+		cubesTetra = tetra.getCubesTetra();
+	}
 
 	public ArrayList<Cube> getCubesTetra()
 	{
@@ -42,4 +47,25 @@ public class Tetramino
 			cubesTetra.get(i).moveRight();
 		}
 	}
+
+	public Type getType() {
+		return type;
+	}
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		
+		for (Cube cube : cubesTetra) 
+		{
+			sb.append(cube.getSymbol());
+			sb.append(cube.getPosX());
+			sb.append(cube.getPosY());
+		}
+		return sb.toString();
+	}
+	
+	public Tetramino clone(){
+		return new Tetramino(this);
+	}
+	
 }

@@ -7,12 +7,10 @@ public class Table
 	
 	public final static int HEIGHT = 18;
 	public final static int WIDTH = 10;
-	
-	
 	public static char TABLESURFACE =  '*';
-	public static char TABLEBOARDERS =  '$';
+	public static char TABLEBOARDERS =  '®';
 	
-	private ArrayList<Cube> cubesStored;
+	private ArrayList<Cube> cubesStored; //Cubes in the table
 	
 	public Table()
 	{
@@ -22,10 +20,14 @@ public class Table
 	public void drawTable(Tetramino tetra)
 	{
 		char[][] tempTable = new char[HEIGHT][WIDTH];
+		
 		buildTable(tempTable);
-		drawCubesStored(tempTable);
+		/**
+		 * Draw Cubes already in the table before draw new Tetramino
+		 */
+		//drawCubesStored(tempTable); 
 		drawTetramino(tempTable, tetra);
-		printTable(tempTable, tempTable);
+		printTable(tempTable);
 	}
 
 	private void buildTable(char[][] tableBoard)
@@ -43,31 +45,51 @@ public class Table
 			System.out.print(TABLEBOARDERS + " ");
 		}
 	}
-	
-	private void drawCubesStored(char [][] table)
+	/**
+	 * Draw all Cubes already in the Table
+	 * @param table Table array where Cubes will be deployed
+	 */
+	/*private void drawCubesStored(char [][] table)
 	{
+		System.out.println(cubesStored.size());
 		for(int i = 0; i < cubesStored.size(); i++)
 		{
 			drawCube(table, cubesStored.get(i));
 		}
-	}
-	
+	}*/
+	/**
+	 * Draw each Cube in a specific position in the Table
+	 * @param table Table where is Draw
+	 * @param cube Cube each Cube to be draw in the table with respective position
+	 */
 	private void drawCube(char[][] table, Cube cube)
 	{
 		table[cube.getPosY()][cube.getPosX()] = cube.getSymbol();
 	}
-	
+	/**
+	 * Draws the new Tetramino in the Table start position 
+	 * @param table Table where is draw
+	 * @param tetra Tetra to draw
+	 */
 	private void drawTetramino(char[][] table, Tetramino tetra) 
 	{
+		/**
+		 * Gets the ArrayList with the Tetra Cubes generated 
+		 */
 		ArrayList<Cube> cubeTetraTemp = tetra.getCubesTetra();
 		
+		System.out.println(cubeTetraTemp.size()); //for debug proposes
 		for(int i = 0; i < cubeTetraTemp.size(); i++)
 		{
 			drawCube(table, cubeTetraTemp.get(i));
 		}
 	}
 
-	private void printTable(char[][] tempTable, char[][] tableBoard) 
+	/**
+	 * Prints tableBoard
+	 * @param tableBoard Tableboard to be printed
+	 */
+	private void printTable(char[][] tableBoard) 
 	{
 		buildBorders();
 		System.out.println();
@@ -79,7 +101,12 @@ public class Table
 		}
 		buildBorders();
 	}
-	
+	/**
+	 * Search Cubes already in the table
+	 * @param x X position of dynamic Tetra moving in the table
+	 * @param y Y position of dynamic Tetra moving in the table
+	 * @return true or false, if has similar position as the blocks in the table
+	 */
 	public boolean searchCubes(int x, int y)
 	{
 		for(int i = 0; i < cubesStored.size(); i++)
@@ -90,7 +117,10 @@ public class Table
 		
 		return false;
 	}
-	
+	/**
+	 * Gets all Cubes stored in the Table
+	 * @return ArrayList of Cubes stored in the Table
+	 */
 	public ArrayList<Cube> getCubesStored()
 	{
 		return cubesStored;
