@@ -80,7 +80,7 @@ public class Table
 		buildBorders();
 	}
 	
-	public boolean searchCube(int x, int y)
+	public boolean searchCubes(int x, int y)
 	{
 		for(int i = 0; i < cubesStored.size(); i++)
 		{
