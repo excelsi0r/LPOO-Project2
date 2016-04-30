@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Tetramino 
 {
-	static enum Type {J,I,T,L,O,Z,S}; 
+	static enum Type {J, I, T, L, O, Z, S}; 
 	
 	protected Type type;
 	protected ArrayList<Cube> cubesTetra;
@@ -14,14 +14,13 @@ public class Tetramino
 		cubesTetra = new ArrayList<Cube>();
 	};
 
-	public ArrayList<Cube> drawTetra()
+	public ArrayList<Cube> getCubesTetra()
 	{
 		return cubesTetra;
 	}
 	
 	public void moveDown()
 	{
-		
 		for(int i = 0; i < cubesTetra.size(); i++)
 		{
 			cubesTetra.get(i).moveDown();

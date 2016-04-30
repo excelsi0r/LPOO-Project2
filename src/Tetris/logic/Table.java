@@ -17,7 +17,7 @@ public class Table
 	public Table()
 	{
 		cubesStored = new ArrayList<Cube>();
-	};
+	}
 	
 	public void drawTable(Tetramino tetra)
 	{
@@ -38,7 +38,8 @@ public class Table
 	
 	private void buildBorders()
 	{
-		for (int i = 0; i < WIDTH; i++ ) {
+		for (int i = 0; i < WIDTH; i++ ) 
+		{
 			System.out.print(TABLEBOARDERS + " ");
 		}
 	}
@@ -58,7 +59,7 @@ public class Table
 	
 	private void drawTetramino(char[][] table, Tetramino tetra) 
 	{
-		ArrayList<Cube> cubeTetraTemp = tetra.drawTetra();
+		ArrayList<Cube> cubeTetraTemp = tetra.getCubesTetra();
 		
 		for(int i = 0; i < cubeTetraTemp.size(); i++)
 		{
@@ -90,7 +91,7 @@ public class Table
 		return false;
 	}
 	
-	public ArrayList<Cube> getCubes()
+	public ArrayList<Cube> getCubesStored()
 	{
 		return cubesStored;
 	}
