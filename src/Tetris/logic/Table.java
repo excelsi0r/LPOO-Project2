@@ -78,7 +78,7 @@ public class Table
 		 */
 		ArrayList<Cube> cubeTetraTemp = tetra.getCubesTetra();
 		
-		System.out.println(cubeTetraTemp.size()); //for debug proposes
+		System.out.println(cubeTetraTemp.size()); //for debug
 		for(int i = 0; i < cubeTetraTemp.size(); i++)
 		{
 			drawCube(table, cubeTetraTemp.get(i));
@@ -107,7 +107,7 @@ public class Table
 	 * @param y Y position of dynamic Tetra moving in the table
 	 * @return true or false, if has similar position as the blocks in the table
 	 */
-	public boolean searchCubes(int x, int y)
+	public boolean searchCubesStored(int x, int y)
 	{
 		for(int i = 0; i < cubesStored.size(); i++)
 		{
