@@ -26,8 +26,7 @@ public class Tetramino
 	
 	public void moveDown()
 	{
-		int numOfCubes = cubesTetra.size();
-		for(int i = 0; i < numOfCubes; i++)
+		for(int i = 0; i < cubesTetra.size(); i++)
 		{
 			cubesTetra.get(i).moveDown();
 		}

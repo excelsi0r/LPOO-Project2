@@ -11,13 +11,13 @@ public class Cube {
 		super();
 	}
 	
-	public Cube(int y, int x)
+	public Cube(int x, int y)
 	{
 		posX = x;
 		posY = y;
 	}
 	
-	public Cube(char symbol, int y, int x)
+	public Cube(char symbol, int x, int y)
 	{
 		this.symbol = symbol;
 		posX = x;
@@ -30,7 +30,7 @@ public class Cube {
 		posY = cube.getPosY();
 	}
 
-	public void setPosXandY(int posY, int posX) 
+	public void setPosXandY(int posX, int posY) 
 	{
 		this.posX = posX;
 		this.posY = posY;
