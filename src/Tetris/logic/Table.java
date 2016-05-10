@@ -22,12 +22,17 @@ public class Table
 		char[][] tempTable = new char[HEIGHT][WIDTH];
 		
 		buildTable(tempTable);
-		/**
-		 * Draw Cubes already in the table before draw new Tetramino
-		 */
-		//drawCubesStored(tempTable); 
+		drawCubesStored(tempTable); 
 		drawTetramino(tempTable, tetra);
 		printTable(tempTable);
+	}
+
+	private void drawCubesStored(char[][] tempTable) 
+	{
+		for(int i = 0; i < cubesStored.size(); i++)
+		{
+			drawCube(tempTable, cubesStored.get(i));
+		}
 	}
 
 	private void buildTable(char[][] tableBoard)
@@ -93,8 +98,10 @@ public class Table
 	{
 		buildBorders();
 		System.out.println();
-		for (int y = 0; y < HEIGHT; y++) {
-			for(int x = 0; x < WIDTH; x++){
+		for (int y = 0; y < HEIGHT; y++) 
+		{
+			for(int x = 0; x < WIDTH; x++)
+			{
 				System.out.print(tableBoard[y][x] + " ");
 			}
 			System.out.println();
@@ -124,5 +131,14 @@ public class Table
 	public ArrayList<Cube> getCubesStored()
 	{
 		return cubesStored;
+	}
+	
+	public void storeTetramino(Tetramino tetra)
+	{
+		for(int i = 0; i < tetra.getCubesTetra().size(); i++)
+		{
+			Cube n = tetra.getCubesTetra().get(i);
+			cubesStored.add(n);
+		}
 	}
 }

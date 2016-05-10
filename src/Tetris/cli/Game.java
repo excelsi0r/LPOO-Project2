@@ -42,19 +42,29 @@ public class Game
 			
 			if(direction == DOWN)
 			{
-				moveDown(firstTetra, table);
+				if(testDown(firstTetra, table) == true)
+				{
+					firstTetra.moveDown();
+				}
+				else
+				{
+					table.storeTetramino(firstTetra);
+					firstTetra = secondTetra;
+					secondTetra = new TetraO();
+				}
+				
 			}
 		
 			else if(direction == LEFT)
 			{
 				moveLeft(firstTetra, table);
-				moveDown(firstTetra, table);
+				//moveDown(firstTetra, table);
 			}
 			
 			else if(direction == RIGHT)
 			{
 				moveRight(firstTetra, table);
-				moveDown(firstTetra, table);
+				//moveDown(firstTetra, table);
 			}
 			
 			else if(direction == STOP) 
@@ -70,13 +80,6 @@ public class Game
 			System.out.println("You lost!");
 		
 		scan.close();
-	}
-	
-	private static void moveDown(Tetramino tetra, Table table)
-	{
-		if(testDown(tetra, table) == false)
-			return;
-		tetra.moveDown();
 	}
 	
 	private static void moveLeft(Tetramino tetra, Table table)
