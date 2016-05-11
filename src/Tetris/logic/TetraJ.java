@@ -4,8 +4,6 @@ public class TetraJ extends Tetramino{
 
 	public TetraJ()
 	{
-		super();
-		
 		int xPos = (Table.WIDTH/2) - 1;
 		int yPos = 1;
 		

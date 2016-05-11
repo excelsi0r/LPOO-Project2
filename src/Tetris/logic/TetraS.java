@@ -4,8 +4,7 @@ public class TetraS extends Tetramino{
 	
 	public TetraS()
 	{
-		super();
-		
+
 		int xPos = (Table.WIDTH/2) - 1;
 		int yPos = 1;
 		cubesTetra.add(new Cube(yPos, xPos+1));

@@ -5,8 +5,6 @@ public class TetraT extends Tetramino
 	
 	public TetraT()
 	{
-		super();
-		
 		int xPos = (Table.WIDTH/2) - 1;
 		int yPos = 1;
 		

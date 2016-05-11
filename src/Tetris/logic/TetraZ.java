@@ -9,10 +9,10 @@ public class TetraZ extends Tetramino {
 		int xPos = (Table.WIDTH/2) - 1;
 		int yPos = 1;
 		
-		cubesTetra.add(new Cube(yPos, xPos-1));
-		cubesTetra.add(new Cube(yPos, xPos));
-		cubesTetra.add(new Cube(yPos+1, xPos));
-		cubesTetra.add(new Cube(yPos+1, xPos+1));
+		this.cubesTetra.add(new Cube(yPos, xPos-1));
+		this.cubesTetra.add(new Cube(yPos, xPos));
+		this.cubesTetra.add(new Cube(yPos+1, xPos));
+		this.cubesTetra.add(new Cube(yPos+1, xPos+1));
 
 		type = Type.Z;
 	}

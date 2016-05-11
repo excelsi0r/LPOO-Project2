@@ -4,8 +4,6 @@ public class TetraO extends Tetramino{
 	
 	public TetraO()
 	{
-		super();
-		
 		int xPos = (Table.WIDTH/2) - 1;
 		int yPos = 1;
 		

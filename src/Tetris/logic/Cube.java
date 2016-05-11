@@ -6,13 +6,11 @@ public class Cube {
 	private int posX ;
 	private int posY;
 	
-	public Cube() 
-	{
-		super();
-	}
+	public Cube() {}
 	
 	public Cube(int x, int y)
 	{
+		super();
 		posX = x;
 		posY = y;
 	}

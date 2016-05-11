@@ -7,7 +7,7 @@ public class Table
 	
 	public final static int HEIGHT = 18;
 	public final static int WIDTH = 10;
-	public final static char TABLESURFACE =  '*';
+	public final static char TABLESURFACE =  ' ';
 	public final static char TABLEBOARDERS =  '&';
 	
 	private ArrayList<Cube> cubesStored; //Cubes in the table
@@ -82,8 +82,6 @@ public class Table
 		 * Gets the ArrayList with the Tetra Cubes generated 
 		 */
 		ArrayList<Cube> cubeTetraTemp = tetra.getCubesTetra();
-		
-		System.out.println(cubeTetraTemp.size()); //for debug
 		for(int i = 0; i < cubeTetraTemp.size(); i++)
 		{
 			drawCube(table, cubeTetraTemp.get(i));
