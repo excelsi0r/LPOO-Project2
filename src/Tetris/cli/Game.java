@@ -22,16 +22,15 @@ public class Game
 	private static final char DOWN = 's';
 	private static final char RIGHT = 'd';
 	private static final char LEFT = 'a';
+	private static final char ROTATE = 'p';
 	private static final char STOP = 'f';
-
-
+	
 	public static void main(String[] args) 
 	{
 		Scanner scan = new Scanner(System.in);
 
 		char direction;
 		Tetris tetris = new Tetris();
-
 
 		tetris.initialize();
 		tetris.setState(State.PLAYING);
@@ -52,6 +51,10 @@ public class Game
 			else if(direction == RIGHT)
 			{
 				tetris.moveRight();
+			}
+			else if(direction == ROTATE)
+			{
+				tetris.rotate();
 			}
 			else if(direction == STOP) 
 			{

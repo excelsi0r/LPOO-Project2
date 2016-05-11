@@ -117,6 +117,11 @@ public class Tetris
 			return;
 		this.firstTetra.moveRight();
 	}
+	
+	public void rotate() 
+	{
+		
+	}
 
 	private boolean testDown(Tetramino tetra, Table table)
 	{
@@ -191,5 +196,4 @@ public class Tetris
 				this.table.getCubesStored().get(i).moveDown();
 		}
 	}
-
 }

@@ -5,7 +5,9 @@ import java.util.Random;
 
 public class Tetramino 
 {
-	protected static enum Type {J, I, T, L, O, Z, S}; 
+	protected static enum Type {J, I, T, L, O, Z, S};
+	protected static enum Rotation {ZERO,ONE,TWO,THREE};
+	
 	protected Type type;
 	protected ArrayList<Cube> cubesTetra;
 

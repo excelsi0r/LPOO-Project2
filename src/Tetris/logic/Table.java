@@ -7,8 +7,8 @@ public class Table
 	
 	public final static int HEIGHT = 18;
 	public final static int WIDTH = 10;
-	public final static char TABLESURFACE =  ' ';
-	public final static char TABLEBOARDERS =  '&';
+	private final static char TABLESURFACE =  ' ';
+	private final static char TABLEBOARDERS =  '&';
 	
 	private ArrayList<Cube> cubesStored; //Cubes in the table
 	
