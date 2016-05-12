@@ -121,11 +121,15 @@ public class Tetris
 			return;
 		this.firstTetra.moveRight();
 	}
-	
+
 	public void rotate() 
 	{
-		
+		if(testRotate(this.firstTetra, this.table) == false)
+			return;
+		this.firstTetra.rotate();
 	}
+
+
 
 	private boolean testDown(Tetramino tetra, Table table)
 	{
@@ -164,7 +168,15 @@ public class Tetris
 		return true;
 	}
 
-	
+	private boolean testRotate(Tetramino tetra, Table table) 
+	{
+		if(tetra.canRotate(table) == false)
+			return false;
+		else
+			return true;
+	}
+
+
 	private void assertLines()
 	{
 		for(int j = Table.HEIGHT - 1; j >= 0 ; j--)
@@ -173,10 +185,10 @@ public class Tetris
 			{
 				boolean exist;
 				exist = table.searchCubesStored(i, j);
-				
+
 				if(exist == false)
 					break;
-				
+
 				if(exist == true && i == Table.WIDTH-1)
 				{
 					this.deleteLine(j);
@@ -185,7 +197,7 @@ public class Tetris
 			}
 		}
 	}
-	
+
 	private void deleteLine(int y)
 	{
 		for(int i = 0; i < this.table.getCubesStored().size(); i++)
@@ -193,14 +205,14 @@ public class Tetris
 			if(this.table.getCubesStored().get(i).getPosY() == y)
 				this.table.getCubesStored().remove(i);
 		}
-		
+
 		for(int i = 0; i < this.table.getCubesStored().size(); i++)
 		{
 			if(this.table.getCubesStored().get(i).getPosY() < y)
 				this.table.getCubesStored().get(i).moveDown();
 		}
 	}
-	
+
 	private boolean canDeploy()
 	{
 		for(int i = 0; i < this.firstTetra.getCubesTetra().size(); i++)
@@ -208,7 +220,7 @@ public class Tetris
 			if(this.table.searchCubesStored(this.firstTetra.getCubesTetra().get(i).getPosX(), this.firstTetra.getCubesTetra().get(i).getPosY()) == true)
 				return false;
 		}
-		
+
 		return true;
 	}
 }

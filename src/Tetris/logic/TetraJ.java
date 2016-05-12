@@ -15,4 +15,16 @@ public class TetraJ extends Tetramino{
 		type = Type.J;
 	}
 	
+	public boolean canRotate(Table table) 
+	{
+		
+		return false;
+	}
+
+	public void rotate() 
+	{
+		
+		
+	}
+	
 }

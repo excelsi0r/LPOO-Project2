@@ -14,4 +14,16 @@ public class TetraS extends Tetramino{
 		
 		type = Type.S;
 	}
+	
+	public boolean canRotate(Table table) 
+	{
+		
+		return false;
+	}
+
+	public void rotate() 
+	{
+		
+		
+	}
 }

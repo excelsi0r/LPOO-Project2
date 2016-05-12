@@ -14,4 +14,16 @@ public class TetraO extends Tetramino{
 		
 		type = Type.O;
 	}	
+	
+	public boolean canRotate(Table table) 
+	{
+		
+		return false;
+	}
+
+	public void rotate() 
+	{
+		
+		
+	}
 }

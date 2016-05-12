@@ -16,4 +16,16 @@ public class TetraZ extends Tetramino {
 
 		type = Type.Z;
 	}
+	
+	public boolean canRotate(Table table) 
+	{
+		
+		return false;
+	}
+
+	public void rotate() 
+	{
+		
+		
+	}
 }
