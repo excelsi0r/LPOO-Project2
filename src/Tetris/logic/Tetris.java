@@ -97,6 +97,10 @@ public class Tetris
 			this.firstTetra = this.secondTetra;
 			this.randSecondTetra();
 			this.assertLines();
+			if(this.canDeploy() == false)
+			{
+				this.state.setState(State.LOST);				
+			}
 		}
 		else
 		{
@@ -195,5 +199,16 @@ public class Tetris
 			if(this.table.getCubesStored().get(i).getPosY() < y)
 				this.table.getCubesStored().get(i).moveDown();
 		}
+	}
+	
+	private boolean canDeploy()
+	{
+		for(int i = 0; i < this.firstTetra.getCubesTetra().size(); i++)
+		{
+			if(this.table.searchCubesStored(this.firstTetra.getCubesTetra().get(i).getPosX(), this.firstTetra.getCubesTetra().get(i).getPosY()) == true)
+				return false;
+		}
+		
+		return true;
 	}
 }
