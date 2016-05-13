@@ -69,6 +69,11 @@ public class Cube {
 		this.posX += 1;
 	}
 	
+	public void moveUp()
+	{
+		this.posY += -1;
+	}
+	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		sb.append(symbol);

@@ -30,7 +30,9 @@ public class TetraT extends Tetramino
 		if(rotation == Rotation.ZERO)	
 		{
 			rotation = Rotation.ONE;
-			//---------
+			
+			this.cubesTetra.get(0).moveLeft();
+			
 		}
 		else if(rotation == Rotation.ONE)
 		{
