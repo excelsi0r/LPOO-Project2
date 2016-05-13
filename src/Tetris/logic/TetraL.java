@@ -9,10 +9,10 @@ public class TetraL extends Tetramino{
 		int xPos = (Table.WIDTH/2) - 1;
 		int yPos = 1;
 		
-		cubesTetra.add(new Cube(yPos, xPos));
-		cubesTetra.add(new Cube(yPos, xPos-1));
-		cubesTetra.add(new Cube(yPos, xPos+1));
-		cubesTetra.add(new Cube(yPos+1, xPos-1));	
+		cubesTetra.add(new Cube(xPos-1, yPos));
+		cubesTetra.add(new Cube(xPos, yPos));
+		cubesTetra.add(new Cube(xPos+1, yPos));
+		cubesTetra.add(new Cube(xPos-1, yPos+1));
 		rotation = Rotation.ZERO;
 		type = Type.L;
 	}
