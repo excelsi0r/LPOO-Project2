@@ -35,7 +35,7 @@ public class TetraZ extends Tetramino {
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
 			//CUBE 2
@@ -45,7 +45,7 @@ public class TetraZ extends Tetramino {
 			
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
 			//CUBE 3
@@ -55,7 +55,7 @@ public class TetraZ extends Tetramino {
 			
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
 			return true;
@@ -72,7 +72,7 @@ public class TetraZ extends Tetramino {
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
 			//CUBE 2
@@ -82,7 +82,7 @@ public class TetraZ extends Tetramino {
 			
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
 			//CUBE 3
@@ -92,7 +92,7 @@ public class TetraZ extends Tetramino {
 			
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
 			return true;

@@ -32,7 +32,7 @@ public class TetraS extends Tetramino{
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 
 			//CUBE 1
@@ -42,7 +42,7 @@ public class TetraS extends Tetramino{
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 
 			//CUBE 3
@@ -52,7 +52,7 @@ public class TetraS extends Tetramino{
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 
 			return true;
@@ -69,7 +69,7 @@ public class TetraS extends Tetramino{
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 
 			//CUBE 1
@@ -79,7 +79,7 @@ public class TetraS extends Tetramino{
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 
 			//CUBE 3
@@ -89,7 +89,7 @@ public class TetraS extends Tetramino{
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
-			if(table.searchCubesStored(x, y) == false)
+			if(table.searchCubesStored(x, y) == true)
 				return false;
 
 			return true;
