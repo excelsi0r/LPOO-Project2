@@ -7,10 +7,11 @@ public class TetraI extends Tetramino{
 		int xPos = (Table.WIDTH/2) - 1;
 		int yPos = 1;
 		
-		cubesTetra.add(new Cube(yPos, xPos));
-		cubesTetra.add(new Cube(yPos, xPos+1));
-		cubesTetra.add(new Cube(yPos, xPos+2));
-		cubesTetra.add(new Cube(yPos, xPos-1));
+		cubesTetra.add(new Cube(xPos-1, yPos));
+		cubesTetra.add(new Cube(xPos, yPos));
+		cubesTetra.add(new Cube(xPos+1, yPos));
+		cubesTetra.add(new Cube(xPos+2, yPos));
+		
 		rotation = Rotation.ZERO;
 		type = Type.I;
 	}
