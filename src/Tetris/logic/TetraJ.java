@@ -20,7 +20,7 @@ public class TetraJ extends Tetramino{
 	public boolean canRotate(Table table) 
 	{
 		
-		return false;
+		return true;
 	}
 
 	public void rotate() 
@@ -28,22 +28,42 @@ public class TetraJ extends Tetramino{
 		if(rotation == Rotation.ZERO)	
 		{
 			rotation = Rotation.ONE;
-			//---------
+			this.cubesTetra.get(0).moveUp();
+			this.cubesTetra.get(0).moveRight();
+			this.cubesTetra.get(2).moveDown();
+			this.cubesTetra.get(2).moveLeft();
+			this.cubesTetra.get(3).moveLeft();
+			this.cubesTetra.get(3).moveLeft();
 		}
 		else if(rotation == Rotation.ONE)
 		{
 			rotation = Rotation.TWO;
-			//------------
+			this.cubesTetra.get(0).moveRight();
+			this.cubesTetra.get(0).moveDown();
+			this.cubesTetra.get(2).moveLeft();
+			this.cubesTetra.get(2).moveUp();
+			this.cubesTetra.get(3).moveUp();
+			this.cubesTetra.get(3).moveUp();
 		}
 		else if(rotation == Rotation.TWO)
 		{
 			rotation = Rotation.THREE;
-			//
+			this.cubesTetra.get(0).moveLeft();
+			this.cubesTetra.get(0).moveDown();
+			this.cubesTetra.get(2).moveRight();
+			this.cubesTetra.get(2).moveUp();
+			this.cubesTetra.get(3).moveRight();	
+			this.cubesTetra.get(3).moveRight();
 		}
 		else if(rotation == Rotation.THREE)
 		{
 			rotation = Rotation.ZERO;
-			//
+			this.cubesTetra.get(0).moveUp();
+			this.cubesTetra.get(0).moveLeft();
+			this.cubesTetra.get(2).moveDown();
+			this.cubesTetra.get(2).moveRight();
+			this.cubesTetra.get(3).moveDown();
+			this.cubesTetra.get(3).moveDown();
 		}
 		
 	}

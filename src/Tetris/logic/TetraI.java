@@ -27,13 +27,27 @@ public class TetraI extends Tetramino{
 		{
 			rotation = Rotation.ONE;
 			System.out.print("rotate to one");
-			//---------
+			this.cubesTetra.get(0).moveUp();
+			this.cubesTetra.get(0).moveUp();
+			this.cubesTetra.get(0).moveRight();
+			this.cubesTetra.get(2).moveDown();
+			this.cubesTetra.get(2).moveLeft();
+			this.cubesTetra.get(3).moveDown();
+			this.cubesTetra.get(3).moveLeft();
+			this.cubesTetra.get(3).moveLeft();
 		}
 		else if(rotation == Rotation.ONE)
 		{
 			rotation = Rotation.ZERO;
 			System.out.print("rotate to zero");
-			//------------
+			this.cubesTetra.get(0).moveLeft();
+			this.cubesTetra.get(0).moveDown();
+			this.cubesTetra.get(0).moveDown();
+			this.cubesTetra.get(2).moveUp();
+			this.cubesTetra.get(2).moveRight();
+			this.cubesTetra.get(3).moveUp();
+			this.cubesTetra.get(3).moveRight();
+			this.cubesTetra.get(3).moveRight();
 		}
 	}
 	
