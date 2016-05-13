@@ -17,8 +17,7 @@ public class TetraO extends Tetramino{
 	
 	public boolean canRotate(Table table) 
 	{
-		
-		return false;
+		return true;
 	}
 
 	public void rotate() 
