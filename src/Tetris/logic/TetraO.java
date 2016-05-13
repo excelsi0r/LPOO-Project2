@@ -11,7 +11,7 @@ public class TetraO extends Tetramino{
 		cubesTetra.add(new Cube(yPos, xPos+1));
 		cubesTetra.add(new Cube(yPos+1, xPos));
 		cubesTetra.add(new Cube(yPos+1, xPos+1));
-		
+		rotation = Rotation.ZERO;
 		type = Type.O;
 	}	
 	
@@ -23,7 +23,6 @@ public class TetraO extends Tetramino{
 
 	public void rotate() 
 	{
-		
-		
+		//Just play a sound...	
 	}
 }

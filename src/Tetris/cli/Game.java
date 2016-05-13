@@ -5,9 +5,7 @@ import Tetris.logic.TetraT;
 import Tetris.logic.TetraZ;
 import Tetris.logic.Tetramino;
 import Tetris.logic.Tetris;
-import Tetris.logic.GameState;
 import Tetris.logic.GameState.State;
-
 import java.util.Random;
 import java.util.Scanner;
 import Tetris.logic.Cube;

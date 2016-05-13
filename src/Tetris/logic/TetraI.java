@@ -11,7 +11,7 @@ public class TetraI extends Tetramino{
 		cubesTetra.add(new Cube(yPos, xPos+1));
 		cubesTetra.add(new Cube(yPos, xPos+2));
 		cubesTetra.add(new Cube(yPos, xPos-1));
-		
+		rotation = Rotation.ZERO;
 		type = Type.I;
 	}
 	
@@ -23,8 +23,16 @@ public class TetraI extends Tetramino{
 
 	public void rotate() 
 	{
-		
-		
+		if(rotation == Rotation.ZERO)	
+		{
+			rotation = Rotation.ONE;
+			//---------
+		}
+		else if(rotation == Rotation.ONE)
+		{
+			rotation = Rotation.ZERO;
+			//------------
+		}
 	}
 	
 }

@@ -9,7 +9,9 @@ public class Tetramino
 	protected static enum Rotation {ZERO,ONE,TWO,THREE};
 	
 	protected Type type;
+	protected Rotation rotation;
 	protected ArrayList<Cube> cubesTetra;
+	
 
 	public Tetramino()
 	{
@@ -68,7 +70,6 @@ public class Tetramino
 	}
 
 	public void rotate() {
-		// TODO Auto-generated method stub
 		
 	}
 

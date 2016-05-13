@@ -1,5 +1,7 @@
 package Tetris.logic;
 
+import Tetris.logic.Tetramino.Rotation;
+
 public class TetraS extends Tetramino{
 	
 	public TetraS()
@@ -11,7 +13,7 @@ public class TetraS extends Tetramino{
 		cubesTetra.add(new Cube(yPos, xPos));
 		cubesTetra.add(new Cube(yPos+1, xPos));
 		cubesTetra.add(new Cube(yPos+1, xPos-1));
-		
+		rotation = Rotation.ZERO;
 		type = Type.S;
 	}
 	
@@ -23,7 +25,26 @@ public class TetraS extends Tetramino{
 
 	public void rotate() 
 	{
-		
+		if(rotation == Rotation.ZERO)	
+		{
+			rotation = Rotation.ONE;
+			//---------
+		}
+		else if(rotation == Rotation.ONE)
+		{
+			rotation = Rotation.TWO;
+			//------------
+		}
+		else if(rotation == Rotation.TWO)
+		{
+			rotation = Rotation.THREE;
+			//
+		}
+		else if(rotation == Rotation.THREE)
+		{
+			rotation = Rotation.ZERO;
+			//
+		}
 		
 	}
 }
