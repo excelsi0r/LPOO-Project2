@@ -8,6 +8,8 @@ import Tetris.logic.Tetris;
 import Tetris.logic.GameState.State;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Timer;
+
 import Tetris.logic.Cube;
 import Tetris.logic.Table;
 import Tetris.logic.TetraI;
@@ -33,6 +35,9 @@ public class Game
 		tetris.initialize();
 		tetris.setState(State.PLAYING);
 		tetris.draw();
+		
+		Timer timer = new Timer(true);
+		timer.schedule(new TimerSchedule(tetris),1000, 1000);
 
 		do
 		{

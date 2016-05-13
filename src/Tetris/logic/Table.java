@@ -105,6 +105,7 @@ public class Table
 			System.out.println();
 		}
 		buildBorders();
+		System.out.println();
 	}
 	/**
 	 * Search Cubes already in the table
