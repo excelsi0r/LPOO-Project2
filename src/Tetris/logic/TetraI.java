@@ -17,8 +17,7 @@ public class TetraI extends Tetramino{
 	
 	public boolean canRotate(Table table) 
 	{
-		
-		return false;
+		return true;
 	}
 
 	public void rotate() 
@@ -26,11 +25,13 @@ public class TetraI extends Tetramino{
 		if(rotation == Rotation.ZERO)	
 		{
 			rotation = Rotation.ONE;
+			System.out.print("rotate to one");
 			//---------
 		}
 		else if(rotation == Rotation.ONE)
 		{
 			rotation = Rotation.ZERO;
+			System.out.print("rotate to zero");
 			//------------
 		}
 	}
