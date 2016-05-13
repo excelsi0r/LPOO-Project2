@@ -69,12 +69,11 @@ public class Tetramino
 		return sb.toString();
 	}
 
-	public void rotate() {
-		
-	}
+	public void rotate(){};
 
-	public boolean canRotate(Table table) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean canRotate(Table table) 
+	{	
+		return true;
 	}
+	
 }

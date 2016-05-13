@@ -170,10 +170,7 @@ public class Tetris
 
 	private boolean testRotate(Tetramino tetra, Table table) 
 	{
-		if(tetra.canRotate(table) == false)
-			return false;
-		else
-			return true;
+		return (tetra.canRotate(table));
 	}
 
 
