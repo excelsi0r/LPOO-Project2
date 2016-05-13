@@ -32,19 +32,8 @@ public class TetraS extends Tetramino{
 		}
 		else if(rotation == Rotation.ONE)
 		{
-			rotation = Rotation.TWO;
+			rotation = Rotation.ZERO;
 			//------------
 		}
-		else if(rotation == Rotation.TWO)
-		{
-			rotation = Rotation.THREE;
-			//
-		}
-		else if(rotation == Rotation.THREE)
-		{
-			rotation = Rotation.ZERO;
-			//
-		}
-		
 	}
 }
