@@ -36,20 +36,24 @@ public class TetraJ extends Tetramino{
 			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
-			//CUBE 2
+			/**
+			 * Cube 2
+			 */
 			x = this.cubesTetra.get(2).getPosX();
 			y = this.cubesTetra.get(2).getPosY();
-			x--;y++;
+			x--; y++;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
 			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
-			//CUBE 3
+			/**
+			 * Cube 3
+			 */
 			x = this.cubesTetra.get(3).getPosX();
 			y = this.cubesTetra.get(3).getPosY();
-			x--;y--;
+			x -= 2;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
@@ -63,30 +67,36 @@ public class TetraJ extends Tetramino{
 			int x;
 			int y;
 
-			//CUBE 0
+			/**
+			 * Cube 0
+			 */
 			x = this.cubesTetra.get(0).getPosX();
 			y = this.cubesTetra.get(0).getPosY();
-			x++;y++;
+			x++; y++;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
 			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
-			//CUBE 2
+			/**
+			 * Cube 2
+			 */
 			x = this.cubesTetra.get(2).getPosX();
 			y = this.cubesTetra.get(2).getPosY();
-			x--;y--;
+			x--; y--;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
 			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
-			//CUBE 3
+			/**
+			 * Cube 3
+			 */
 			x = this.cubesTetra.get(3).getPosX();
 			y = this.cubesTetra.get(3).getPosY();
-			x++;y--;
+			y += 2;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
@@ -100,30 +110,36 @@ public class TetraJ extends Tetramino{
 			int x;
 			int y;
 
-			//CUBE 0
+			/**
+			 * Cube 0
+			 */
 			x = this.cubesTetra.get(0).getPosX();
 			y = this.cubesTetra.get(0).getPosY();
-			x--;y++;
+			x--; y++;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
 			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
-			//CUBE 2
+			/**
+			 * Cube 2
+			 */
 			x = this.cubesTetra.get(2).getPosX();
 			y = this.cubesTetra.get(2).getPosY();
-			x++;y--;
+			x++; y--;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
 			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
-			//CUBE 3
+			/**
+			 * Cube 3
+			 */
 			x = this.cubesTetra.get(3).getPosX();
 			y = this.cubesTetra.get(3).getPosY();
-			x++;y++;
+			x += 2;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
@@ -137,30 +153,36 @@ public class TetraJ extends Tetramino{
 			int x;
 			int y;
 
-			//CUBE 0
+			/**
+			 * Cube 0
+			 */
 			x = this.cubesTetra.get(0).getPosX();
 			y = this.cubesTetra.get(0).getPosY();
-			x--;y--;
+			x--; y--;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
 			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
-			//CUBE 2
+			/**
+			 * Cube 2
+			 */
 			x = this.cubesTetra.get(2).getPosX();
 			y = this.cubesTetra.get(2).getPosY();
-			x++;y++;
+			x++; y++;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;
 			if(table.searchCubesStored(x, y) == true)
 				return false;
 			
-			//CUBE 3
+			/**
+			 * Cube 3
+			 */
 			x = this.cubesTetra.get(3).getPosX();
 			y = this.cubesTetra.get(3).getPosY();
-			x--;y++;
+			y += 2;
 
 			if(x >= Table.WIDTH || x < 0|| y >= Table.HEIGHT || y < 0)
 				return false;

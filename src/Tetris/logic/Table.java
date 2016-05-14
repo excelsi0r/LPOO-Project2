@@ -120,7 +120,7 @@ public class Table
 			if(cubesStored.get(i).getPosX() == x && cubesStored.get(i).getPosY() == y)
 				return true;
 		}
-		
+
 		return false;
 	}
 	/**
