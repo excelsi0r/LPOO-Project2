@@ -1,21 +1,10 @@
 package Tetris.cli;
 
-import Tetris.logic.TetraS;
-import Tetris.logic.TetraT;
-import Tetris.logic.TetraZ;
-import Tetris.logic.Tetramino;
+
 import Tetris.logic.Tetris;
 import Tetris.logic.GameState.State;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.Timer;
-
-import Tetris.logic.Cube;
-import Tetris.logic.Table;
-import Tetris.logic.TetraI;
-import Tetris.logic.TetraJ;
-import Tetris.logic.TetraL;
-import Tetris.logic.TetraO;
 
 public class Game
 {
@@ -37,7 +26,7 @@ public class Game
 		tetris.draw();
 		
 		Timer timer = new Timer(true);
-		timer.schedule(new TimerSchedule(tetris),1000, 1000);
+		timer.schedule(new TimerSchedule(tetris), 1000, 1000);
 
 		do
 		{

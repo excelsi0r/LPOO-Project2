@@ -1,7 +1,5 @@
 package Tetris.logic;
 
-import Tetris.logic.Tetramino.Rotation;
-
 public class TetraZ extends Tetramino {
 
 	public TetraZ()

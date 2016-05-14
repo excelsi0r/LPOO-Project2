@@ -1,8 +1,6 @@
 package Tetris.logic;
 
 import java.util.Random;
-import java.util.Scanner;
-
 import Tetris.logic.GameState.State;
 
 public class Tetris 
@@ -131,13 +129,18 @@ public class Tetris
 
 
 
+	/**
+	 * Test Tetramino position against other tetras in the table and table bottom
+	 * @param tetra Tetramino tested
+	 * @param table Table game
+	 * @return true or false
+	 */
 	private boolean testDown(Tetramino tetra, Table table)
 	{
 		for(int j = 0; j < tetra.getCubesTetra().size(); j++)
 		{
 			if(tetra.getCubesTetra().get(j).getPosY() + 1 >= Table.HEIGHT)
 				return false;
-
 			if(table.searchCubesStored(tetra.getCubesTetra().get(j).getPosX(), tetra.getCubesTetra().get(j).getPosY() + 1) == true)
 				return false;
 		}
@@ -168,11 +171,16 @@ public class Tetris
 		return true;
 	}
 
+	/**
+	 * Test if Tetramino can rotate in the Table
+	 * @param tetra Tetramino being tested
+	 * @param table Table game
+	 * @return true or false
+	 */
 	private boolean testRotate(Tetramino tetra, Table table) 
 	{
 		return (tetra.canRotate(table));
 	}
-
 
 	private void assertLines()
 	{

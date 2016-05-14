@@ -1,7 +1,6 @@
 package Tetris.cli;
 
 import java.util.TimerTask;
-
 import Tetris.logic.Tetris;
 
 public class TimerSchedule extends TimerTask

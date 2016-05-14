@@ -27,14 +27,6 @@ public class Table
 		printTable(tempTable);
 	}
 
-	private void drawCubesStored(char[][] tempTable) 
-	{
-		for(int i = 0; i < cubesStored.size(); i++)
-		{
-			drawCube(tempTable, cubesStored.get(i));
-		}
-	}
-
 	private void buildTable(char[][] tableBoard)
 	{
 		for(char[] row : tableBoard)
@@ -54,14 +46,14 @@ public class Table
 	 * Draw all Cubes already in the Table
 	 * @param table Table array where Cubes will be deployed
 	 */
-	/*private void drawCubesStored(char [][] table)
+	private void drawCubesStored(char [][] tempTable)
 	{
 		System.out.println(cubesStored.size());
 		for(int i = 0; i < cubesStored.size(); i++)
 		{
-			drawCube(table, cubesStored.get(i));
+			drawCube(tempTable, cubesStored.get(i));
 		}
-	}*/
+	}
 	/**
 	 * Draw each Cube in a specific position in the Table
 	 * @param table Table where is Draw

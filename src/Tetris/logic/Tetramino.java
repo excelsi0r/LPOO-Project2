@@ -1,7 +1,6 @@
 package Tetris.logic;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Tetramino 
 {
@@ -12,7 +11,6 @@ public class Tetramino
 	protected Rotation rotation;
 	protected ArrayList<Cube> cubesTetra;
 	
-
 	public Tetramino()
 	{
 		cubesTetra = new ArrayList<Cube>();
