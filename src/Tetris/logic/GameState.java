@@ -2,7 +2,7 @@ package Tetris.logic;
 
 public class GameState 
 {
-	public static enum State { PLAYING, WIN, LOST };
+	public enum State { PLAYING, WIN, LOST };
 	
 	private State state;
 	

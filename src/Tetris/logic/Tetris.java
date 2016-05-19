@@ -5,6 +5,7 @@ import Tetris.logic.GameState.State;
 
 public class Tetris 
 {
+	private final static int TETRATYPE = 7;
 	private Tetramino firstTetra;
 	private Tetramino secondTetra;
 	private Table table;
@@ -30,7 +31,7 @@ public class Tetris
 	{
 		Random r = new Random();
 
-		int n = r.nextInt(7);
+		int n = r.nextInt(TETRATYPE);
 
 		if(n == 0)
 			this.firstTetra = new TetraI();
