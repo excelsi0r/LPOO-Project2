@@ -204,6 +204,10 @@ public class Tetris
 		}
 	}
 
+	/**
+	 * Delete lines and push down Tetraminos above removed lines
+	 * @param y Cube position to be removed
+     */
 	private void deleteLine(int y)
 	{
 		for(int i = 0; i < this.table.getCubesStored().size(); i++)
