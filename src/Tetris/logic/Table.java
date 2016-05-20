@@ -99,6 +99,18 @@ public class Table
 		buildBorders();
 		System.out.println();
 	}
+	
+	public char[][] getTable(Tetramino tetra)
+	{
+		char[][] tempTable = new char[HEIGHT][WIDTH];
+
+		drawCubesStored(tempTable);
+		drawTetramino(tempTable, tetra);
+
+		return tempTable;
+
+
+	}
 	/**
 	 * Search Cubes already in the table
 	 * @param x X position of dynamic Tetra moving in the table

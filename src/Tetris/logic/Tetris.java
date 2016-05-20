@@ -73,6 +73,11 @@ public class Tetris
 	{
 		this.table.drawTable(this.firstTetra);
 	}
+	
+	public char[][] getTable()
+	{
+		return this.table.getTable(this.firstTetra);
+	}
 
 	public void moveDown()
 	{
