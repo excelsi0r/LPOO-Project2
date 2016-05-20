@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class Tetramino 
 {
-	protected static enum Type {J, I, T, L, O, Z, S};
-	protected static enum Rotation {ZERO,ONE,TWO,THREE};
+	protected enum Type {J, I, T, L, O, Z, S};
+	protected enum Rotation {ZERO,ONE,TWO,THREE};
 	
 	protected Type type;
 	protected Rotation rotation;
 	protected ArrayList<Cube> cubesTetra;
-	
+
+
 	public Tetramino()
 	{
 		cubesTetra = new ArrayList<Cube>();
@@ -67,11 +68,8 @@ public class Tetramino
 		return sb.toString();
 	}
 
-	public void rotate(){};
+	public void rotate(){}
 
-	public boolean canRotate(Table table) 
-	{	
-		return true;
-	}
+	public boolean canRotate(Table table) {return false;}
 	
 }

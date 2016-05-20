@@ -16,6 +16,14 @@ public class Tetris
 		super();
 	}
 
+	public Tetramino getFirstTetra() {
+		return firstTetra;
+	}
+
+	public Tetramino getSecondTetra() {
+		return secondTetra;
+	}
+
 	public void initialize()
 	{
 		this.firstTetra = new Tetramino();
@@ -23,53 +31,31 @@ public class Tetris
 		this.table = new Table();
 		this.state = new GameState();
 
-		this.randFirstTetra();
-		this.randSecondTetra();
+		firstTetra = randTetra();
+		secondTetra = randTetra();
 	}
 
-	private void randFirstTetra()
+	private Tetramino randTetra()
 	{
 		Random r = new Random();
 
 		int n = r.nextInt(TETRATYPE);
 
 		if(n == 0)
-			this.firstTetra = new TetraI();
+			return new TetraI();
 		else if(n == 1)
-			this.firstTetra = new TetraJ();
+			return new TetraJ();
 		else if(n == 2)
-			this.firstTetra = new TetraL();
+			return new TetraL();
 		else if(n == 3)
-			this.firstTetra = new TetraO();
+			return new TetraO();
 		else if(n == 4)
-			this.firstTetra = new TetraS();
+			return new TetraS();
 		else if(n == 5)
-			this.firstTetra = new TetraZ();
+			return new TetraZ();
 		else if(n == 6)
-			this.firstTetra = new TetraT();
-
-	}
-
-	public void randSecondTetra()
-	{
-		Random r = new Random();
-
-		int n = r.nextInt(7);
-
-		if(n == 0)
-			this.secondTetra = new TetraI();
-		else if(n == 1)
-			this.secondTetra = new TetraJ();
-		else if(n == 2)
-			this.secondTetra = new TetraL();
-		else if(n == 3)
-			this.secondTetra = new TetraO();
-		else if(n == 4)
-			this.secondTetra = new TetraS();
-		else if(n == 5)
-			this.secondTetra = new TetraZ();
-		else if(n == 6)
-			this.secondTetra = new TetraT();
+			return new TetraT();
+		else return null;
 
 	}
 
@@ -85,7 +71,7 @@ public class Tetris
 
 	public void draw() 
 	{
-		this.table.drawTable(this.firstTetra);		
+		this.table.drawTable(this.firstTetra);
 	}
 
 	public void moveDown()
@@ -94,7 +80,7 @@ public class Tetris
 		{
 			this.table.storeTetramino(this.firstTetra);
 			this.firstTetra = this.secondTetra;
-			this.randSecondTetra();
+			secondTetra = this.randTetra();
 			this.assertLines();
 			if(this.canDeploy() == false)
 			{
