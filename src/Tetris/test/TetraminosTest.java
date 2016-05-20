@@ -2,6 +2,8 @@ package Tetris.test;
 
 import Tetris.logic.Tetris;
 import Tetris.logic.Tetramino;
+import Tetris.logic.*;
+import Tetris.cli.*;
 
 import static org.junit.Assert.*;
 
@@ -18,10 +20,15 @@ public class TetraminosTest {
         firstTetra = tetris.getFirstTetra();
         secondTetra = tetris.getSecondTetra();
 
-        int posX, posY;
+        int x1init, y1init;
+        int x2init, y2init;
+        int x3init, y3init;
+        int x4init, y4init;
 
-        firstTetra.getType();
-
+        int x1final, y1final;
+        int x2final, y2final;
+        int x3final, y3final;
+        int x4final, y4final;
 
 
         firstTetra.moveDown();

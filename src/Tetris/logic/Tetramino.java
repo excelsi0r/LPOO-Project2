@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Tetramino 
 {
-	protected enum Type {J, I, T, L, O, Z, S};
+	public enum Type {J, I, T, L, O, Z, S};
 	protected enum Rotation {ZERO,ONE,TWO,THREE};
 	
 	protected Type type;
