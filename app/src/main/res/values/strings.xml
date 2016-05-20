@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tetris</string>
+    <string name="single_player">SINGLE PLAYER</string>
+    <string name="versus">VERSUS</string>
+    <string name="machine">VS MACHINE</string>
+    <string name="quit">QUIT</string>
+    <string name="Settings">SETTINGS</string>
+    <string name="tetris_logo">Tetris Logo</string>
+</resources>
