@@ -61,7 +61,6 @@ public class Menu extends Activity implements View.OnClickListener
         super.onResume();
         song.seekTo(resumetimesiong);
         song.start();
-
     }
 
     @Override

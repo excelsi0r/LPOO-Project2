@@ -5,7 +5,7 @@ public class Cube {
 	private char symbol = '#';
 	private int posX ;
 	private int posY;
-	
+
 	public Cube() {}
 	
 	public Cube(int x, int y)
