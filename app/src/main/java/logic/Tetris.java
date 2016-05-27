@@ -16,6 +16,16 @@ public class Tetris
 		super();
 	}
 
+	public void initialize()
+	{
+		this.firstTetra = new Tetramino();
+		this.secondTetra = new Tetramino();
+		this.table = new Table();
+		this.state = new GameState();
+		firstTetra = randTetra();
+		secondTetra = randTetra();
+	}
+
 	public Tetramino getFirstTetra() {
 		return firstTetra;
 	}
@@ -23,18 +33,7 @@ public class Tetris
 	public Tetramino getSecondTetra() {
 		return secondTetra;
 	}
-
-	public void initialize()
-	{
-		this.firstTetra = new Tetramino();
-		this.secondTetra = new Tetramino();
-		this.table = new Table();
-		this.state = new GameState();
-
-		firstTetra = randTetra();
-		secondTetra = randTetra();
-	}
-
+	
 	private Tetramino randTetra()
 	{
 		Random r = new Random();

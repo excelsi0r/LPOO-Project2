@@ -42,6 +42,7 @@ public class Table
 			System.out.print(TABLEBOARDERS + " ");
 		}
 	}
+	
 	/**
 	 * Draw all Cubes already in the Table
 	 * @param table Table array where Cubes will be deployed
@@ -54,6 +55,7 @@ public class Table
 			drawCube(tempTable, cubesStored.get(i));
 		}
 	}
+	
 	/**
 	 * Draw each Cube in a specific position in the Table
 	 * @param table Table where is Draw
@@ -63,6 +65,7 @@ public class Table
 	{
 		table[cube.getPosY()][cube.getPosX()] = cube.getSymbol();
 	}
+	
 	/**
 	 * Draws the new Tetramino in the Table start position 
 	 * @param table Table where is draw
@@ -108,9 +111,8 @@ public class Table
 		drawTetramino(tempTable, tetra);
 
 		return tempTable;
-
-
 	}
+	
 	/**
 	 * Search Cubes already in the table
 	 * @param x X position of dynamic Tetra moving in the table
