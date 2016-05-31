@@ -1,6 +1,9 @@
 package test;
 
 import logic.Tetris;
+import logic.Cube;
+import logic.GameState;
+import logic.GameState.State;
 import logic.TetraI;
 import logic.TetraJ;
 import logic.TetraL;
@@ -10,7 +13,6 @@ import logic.TetraT;
 import logic.TetraZ;
 import logic.Tetramino;
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 
 /**
@@ -52,8 +54,74 @@ public class TetraminosTest {
         y3final = tetramino.getCubesTetra().get(3).getPosY();
     }
 	
-
     @org.junit.Test (timeout = 1000)
+    public void testDraw(){
+    	Tetris tetris =  new Tetris();
+        tetris.initialize();
+        tetris.draw();
+    }
+    
+    @org.junit.Test (timeout = 1000)
+    public void testTetrasType(){
+    	ArrayList<Tetramino> tetras = new ArrayList<>();
+    	tetras.add(new TetraI());
+    	tetras.add(new TetraS());
+    	tetras.add(new TetraZ());
+    	tetras.add(new TetraL());
+    	tetras.add(new TetraJ());
+    	tetras.add(new TetraT());
+    	tetras.add(new TetraO());
+    	
+    	for (Tetramino tetramino : tetras) {
+			if(tetramino instanceof TetraO)
+				assertEquals("O", tetramino.toString());
+			else if(tetramino instanceof TetraS)
+				assertEquals("S", tetramino.toString());
+			else if(tetramino instanceof TetraT)
+				assertEquals("T", tetramino.toString());
+			else if(tetramino instanceof TetraZ)
+				assertEquals("Z", tetramino.toString());
+			else if(tetramino instanceof TetraL)
+				assertEquals("L", tetramino.toString());
+			else if(tetramino instanceof TetraJ)
+				assertEquals("J", tetramino.toString());
+			else if(tetramino instanceof TetraI)
+				assertEquals("I", tetramino.toString());
+		}
+    }
+    
+    @org.junit.Test (timeout = 1000)
+    public void createCube(){
+    	Cube cube = new Cube();
+    	assertEquals("#", cube.clone().toString());
+    	cube.setSymbol('$');
+    	assertEquals("$", cube.clone().toString());
+    }
+    
+    @org.junit.Test (timeout = 1000)
+    public void testCanotMoveDown(){
+    	Tetris tetris = new Tetris();        
+    	tetris.initialize();
+    	
+    	for(int i = 0; i < 20; i++){
+    		tetris.moveDown();
+    	}
+    }
+    
+    @org.junit.Test (timeout = 1000)
+    public void testStateChange(){
+    	GameState state = new GameState();
+    	
+    	state.setState(State.PLAYING);
+    	assertEquals(State.PLAYING, state.getState());
+    	state.setState(State.WIN);
+    	assertEquals(State.WIN, state.getState());
+    	state.setState(State.LOST);
+    	assertEquals(State.LOST, state.getState());
+    	
+    }
+
+	@org.junit.Test (timeout = 1000)
     public void TetraMoveDown(){
         Tetris tetris =  new Tetris();
         tetris.initialize();
@@ -127,27 +195,18 @@ public class TetraminosTest {
     
     
     private void tetraTestRotation(int x0, int x1, int x2, int x3, int y0, int y1, int y2, int y3){
-    	System.out.println("Xinit - Xfinal");
-    	System.out.print(x0init + "       ");System.out.println(x0final);//for debug purposes
-    	System.out.print(x1init + "       ");System.out.println(x1final);
-    	System.out.print(x2init + "       ");System.out.println(x2final);
-    	System.out.print(x3init + "       ");System.out.println(x3final);
+    	
     	assertEquals(x0init + x0, x0final);
         assertEquals(x1init + x1, x1final);
         assertEquals(x2init + x2, x2final);
         assertEquals(x3init + x3, x3final);
-      	System.out.println("Yinit - Yfinal");
-        System.out.print(y0init + "       ");System.out.println(y0final);
-    	System.out.print(y1init + "       ");System.out.println(y1final);
-    	System.out.print(y2init + "       ");System.out.println(y2final);
-    	System.out.print(y3init + "       ");System.out.println(y3final);
+      
         assertEquals(y0init + y0, y0final);
         assertEquals(y1init + y1, y1final);
         assertEquals(y2init + y2, y2final);
         assertEquals(y3init + y3, y3final);
         
     }
-    
     
     @org.junit.Test (timeout = 2000)
     public void testRotaion() {
@@ -170,7 +229,6 @@ public class TetraminosTest {
     		firstTetra = tetris.getFirstTetra();
     		
     		if( firstTetra instanceof TetraI ){
-        		System.out.println(firstTetra.getClass().getName());
         		int x0 = 2; int x1 = 1; int x2 = 0; int x3 = -1; int y0 = -2; int y1 = -1; int y2 = 0; int y3 = 1;
         		//To enable rotation
         		tetris.moveDown();
@@ -196,9 +254,8 @@ public class TetraminosTest {
         		tetraTestRotation(xx0, xx1, xx2, xx3, yy0, yy1, yy2, yy3);
         	}
     		
-        	if( firstTetra instanceof TetraL )
-        	{
-        		System.out.println(firstTetra.getClass().getName());
+    		else if( firstTetra instanceof TetraL ){
+        		
         		int x0 = 1; int x1 = 0; int x2 = -1; int x3 = 0; int y0 = -1; int y1 = 0; int y2 = 1; int y3 = -2;
         		/*To enable rotation*/
         		tetris.moveDown();
@@ -248,9 +305,8 @@ public class TetraminosTest {
         		tetraTestRotation(xxxx0, xxxx1, xxxx2, xxxx3, yyyy0, yyyy1, yyyy2, yyyy3);
         	}
         		
-
         	else if( firstTetra instanceof TetraJ ){
-        		System.out.println(firstTetra.getClass().getName());
+
         		int x0 = 1; int x1 = 0; int x2 = -1; int x3 = -2; int y0 = -1; int y1 = 0; int y2 = 1; int y3 = 0;
         		/*To enable rotation*/
         		tetris.moveDown();
@@ -301,7 +357,7 @@ public class TetraminosTest {
         	}
         		
         	else if( firstTetra instanceof TetraZ ){
-        		System.out.println(firstTetra.getClass().getName());
+        		
         		int x0 = 1; int x1 = 0; int x2 = 1; int x3 = 0; int y0 = 1; int y1 = 0; int y2 = -1; int y3 = -2;
         		/*To enable rotation*/
         		tetris.moveDown();
@@ -328,7 +384,7 @@ public class TetraminosTest {
         	}
 
         	else if( firstTetra instanceof TetraO ){
-        		System.out.println(firstTetra.getClass().getName());
+        		
         		int x0 = 0; int x1 = 0; int x2 = 0; int x3 = 0; int y0 = 0; int y1 = 0; int y2 = 0; int y3 = 0;
         		/*To enable rotation*/
         		tetris.moveDown();
@@ -344,7 +400,6 @@ public class TetraminosTest {
         	}
 
         	else if( firstTetra instanceof TetraS ){
-        		System.out.println(firstTetra.getClass().getName());
         		int x0 = 0; int x1 = -1; int x2 = 0; int x3 = -1; int y0 = -2; int y1 = -1; int y2 = 0; int y3 = 1;
         		/*To enable rotation*/
         		tetris.moveDown();
@@ -371,7 +426,6 @@ public class TetraminosTest {
         	}
 
         	else if( firstTetra instanceof TetraT ){
-        		System.out.println(firstTetra.getClass().getName());
         		int x0 = 1; int x1 = 0; int x2 = -1; int x3 = -1; int y0 = -1; int y1 = 0; int y2 = 1; int y3 = -1;
         		/*To enable rotation*/
         		tetris.moveDown();

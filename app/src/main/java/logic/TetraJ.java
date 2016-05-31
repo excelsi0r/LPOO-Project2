@@ -248,4 +248,7 @@ public class TetraJ extends Tetramino{
 		
 	}
 	
+	public String toString(){
+		return super.toString();
+	}
 }

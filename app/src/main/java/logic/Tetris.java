@@ -132,7 +132,7 @@ public class Tetris
 	 * @param table Table game
 	 * @return true or false
 	 */
-	private boolean testDown(Tetramino tetra, Table table)
+	public boolean testDown(Tetramino tetra, Table table)
 	{
 		for(int j = 0; j < tetra.getCubesTetra().size(); j++)
 		{

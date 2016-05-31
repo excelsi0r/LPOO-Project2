@@ -251,4 +251,8 @@ public class TetraL extends Tetramino{
 		}
 		
 	}
+	
+	public String toString(){
+		return super.toString();
+	}
 }

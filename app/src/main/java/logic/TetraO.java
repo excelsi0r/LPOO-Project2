@@ -20,8 +20,9 @@ public class TetraO extends Tetramino{
 		return true;
 	}
 
-	public void rotate() 
-	{
-		//Just play a sound...	
+	public void rotate() {/*Just play a sound...*/}
+	
+	public String toString(){
+		return super.toString();
 	}
 }

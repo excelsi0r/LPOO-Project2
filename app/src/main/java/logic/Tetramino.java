@@ -58,13 +58,7 @@ public class Tetramino
 
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
-
-		for (Cube cube : cubesTetra) 
-		{
-			sb.append(cube.getSymbol());
-			sb.append(cube.getPosX());
-			sb.append(cube.getPosY());
-		}
+		sb.append(type);
 		return sb.toString();
 	}
 

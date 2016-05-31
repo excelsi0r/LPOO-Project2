@@ -49,7 +49,7 @@ public class Table
 	 */
 	private void drawCubesStored(char [][] tempTable)
 	{
-		System.out.println(cubesStored.size());
+		System.out.println("Number of Cubes Stored: " + cubesStored.size()); //Debug use to know how many cubes are deployed
 		for(int i = 0; i < cubesStored.size(); i++)
 		{
 			drawCube(tempTable, cubesStored.get(i));

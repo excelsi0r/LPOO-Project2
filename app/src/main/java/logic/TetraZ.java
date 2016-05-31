@@ -131,4 +131,8 @@ public class TetraZ extends Tetramino {
 			this.cubesTetra.get(3).moveDown();
 		}		
 	}
+	
+	public String toString(){
+		return super.toString();
+	}
 }

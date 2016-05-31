@@ -140,4 +140,8 @@ public class TetraS extends Tetramino{
 			this.cubesTetra.get(3).moveUp();
 		}
 	}
+	
+	public String toString(){
+		return super.toString();
+	}
 }

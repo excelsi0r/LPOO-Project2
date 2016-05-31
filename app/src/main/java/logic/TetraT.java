@@ -236,5 +236,9 @@ public class TetraT extends Tetramino
 		}
 
 	}
+	
+	public String toString(){
+		return super.toString();
+	}
 
 }
