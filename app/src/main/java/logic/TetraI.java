@@ -116,16 +116,16 @@ public class TetraI extends Tetramino{
 		{
 			rotation = Rotation.ONE;
 			
-			this.cubesTetra.get(0).moveUp();
-			this.cubesTetra.get(0).moveUp();
-			this.cubesTetra.get(0).moveRight();
-			this.cubesTetra.get(0).moveRight();
+			this.cubesTetra.get(0).moveUp();//Ymove
+			this.cubesTetra.get(0).moveUp();//Ymove
+			this.cubesTetra.get(0).moveRight();//Xmove
+			this.cubesTetra.get(0).moveRight();//Xmove
 			
-			this.cubesTetra.get(1).moveUp();
-			this.cubesTetra.get(1).moveRight();
+			this.cubesTetra.get(1).moveUp();//Ymove
+			this.cubesTetra.get(1).moveRight();//Xmove
 			
-			this.cubesTetra.get(3).moveDown();
-			this.cubesTetra.get(3).moveLeft();
+			this.cubesTetra.get(3).moveDown();//Ymove
+			this.cubesTetra.get(3).moveLeft();//Xmove
 			
 		}
 		else if(rotation == Rotation.ONE)

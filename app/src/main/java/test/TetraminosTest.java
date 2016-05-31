@@ -126,13 +126,21 @@ public class TetraminosTest {
     }
     
     
-    private void tetraRotation(int x0, int x1, int x2, int x3, int y0, int y1, int y2, int y3){
-    	
+    private void tetraTestRotation(int x0, int x1, int x2, int x3, int y0, int y1, int y2, int y3){
+    	System.out.println("Xinit - Xfinal");
+    	System.out.print(x0init + "       ");System.out.println(x0final);
+    	System.out.print(x1init + "       ");System.out.println(x1final);
+    	System.out.print(x2init + "       ");System.out.println(x2final);
+    	System.out.print(x3init + "       ");System.out.println(x3final);
     	assertEquals(x0init + x0, x0final);
         assertEquals(x1init + x1, x1final);
         assertEquals(x2init + x2, x2final);
         assertEquals(x3init + x3, x3final);
-        
+      	System.out.println("Yinit - Yfinal");
+        System.out.print(y0init + "       ");System.out.println(y0final);
+    	System.out.print(y1init + "       ");System.out.println(y1final);
+    	System.out.print(y2init + "       ");System.out.println(y2final);
+    	System.out.print(y3init + "       ");System.out.println(y3final);
         assertEquals(y0init + y0, y0final);
         assertEquals(y1init + y1, y1final);
         assertEquals(y2init + y2, y2final);
@@ -141,10 +149,9 @@ public class TetraminosTest {
     }
     
     
-    @org.junit.Test (timeout = 1000)
+    @org.junit.Test (timeout = 2000)
     public void testRotaion() {
     	Tetris tetris =  new Tetris();
-    	tetris.initialize();
     	Tetramino firstTetra;
     	
     	ArrayList<Tetramino> tetras = new ArrayList<>();
@@ -164,9 +171,29 @@ public class TetraminosTest {
     		
     		if( firstTetra instanceof TetraI ){
         		System.out.println(firstTetra.getClass().getName());
-        		int x0 = 0; int x1 = 0; int x2 = 0; int x3 = 0; int y0 = 0; int y1 = 0; int y2 = 0; int y3 = 0;
+        		int x0 = 2; int x1 = 1; int x2 = 0; int x3 = -1; int y0 = -2; int y1 = -1; int y2 = 0; int y3 = 1;
+        		/*To enable rotation*/
+        		tetris.moveDown();
         		
-        		tetraRotation(x0, x1, x2, x3, y0, y1, y2, y3);
+        		moveInit(firstTetra);
+        		
+        		tetris.rotate();
+        		
+        		moveFinal(firstTetra);
+        		
+        		tetraTestRotation(x0, x1, x2, x3, y0, y1, y2, y3);
+        		/**
+        		 * Second rotation
+        		 */
+        		int xx0 = -2; int xx1 = -1; int xx2 = 0; int xx3 = 1; int yy0 = 2; int yy1 = 1; int yy2 = 0; int yy3 = -1;
+
+        		moveInit(firstTetra);
+        		
+        		tetris.rotate();
+        		
+        		moveFinal(firstTetra);
+        		
+        		tetraTestRotation(xx0, xx1, xx2, xx3, yy0, yy1, yy2, yy3);
         	}
     		
         	if( firstTetra instanceof TetraL )
