@@ -25,6 +25,12 @@ public class Tetris
 		firstTetra = randTetra();
 		secondTetra = randTetra();
 	}
+	
+	public void testConstructor(Tetramino tetra){
+		this.firstTetra = tetra;
+		this.table = new Table();
+		this.state = new GameState();
+	}
 
 	public Tetramino getFirstTetra() {
 		return firstTetra;
