@@ -3,10 +3,12 @@ package com.nuno_mglhotmail.tetris;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.graphics.Bitmap;
 import logic.*;
+import android.os.Handler;
 
 /**
  * Created by nuno_ on 20-May-16.
@@ -14,16 +16,17 @@ import logic.*;
 public class TetrisView extends View
 {
     private final BitmapFactory.Options options = new BitmapFactory.Options();
-    private Bitmap TetraI;
-    private Bitmap TetraJ;
-    private Bitmap TetraO;
-    private Bitmap TetraL;
-    private Bitmap TetraT;
-    private Bitmap TetraS;
-    private Bitmap TetraZ;
-    private Tetris tetris;
 
-    public TetrisView(Context context)
+    private static Bitmap TetraI;
+    private static Bitmap TetraJ;
+    private static Bitmap TetraO;
+    private static Bitmap TetraL;
+    private static Bitmap TetraT;
+    private static Bitmap TetraS;
+    private static Bitmap TetraZ;
+    private static Tetris tetris = null;
+
+    public TetrisView(Context context, Tetris t)
     {
         super(context);
         options.inPreferredConfig=Bitmap.Config.RGB_565;
@@ -34,15 +37,12 @@ public class TetrisView extends View
         TetraS = BitmapFactory.decodeResource(getResources(), R.drawable.tetras, options);
         TetraZ = BitmapFactory.decodeResource(getResources(), R.drawable.tetras, options);
         TetraO = BitmapFactory.decodeResource(getResources(), R.drawable.tetrao, options);
-        tetris = new Tetris();
-        tetris.initialize();
-
+        this.tetris = t;
     }
 
     @Override
     protected void onDraw(Canvas canvas)
     {
-
         super.onDraw(canvas);
         int x = 10;
         int y = 10;
@@ -56,7 +56,7 @@ public class TetrisView extends View
             {
                 if (table[j][i] == '#')
                 {
-                    canvas.drawBitmap(TetraI, x + i*75,y+j*75,null);
+                    canvas.drawBitmap(TetraI, x + i*115,y+j*115,null);
                 }
             }
         }

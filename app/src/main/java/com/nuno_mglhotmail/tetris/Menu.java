@@ -86,7 +86,7 @@ public class Menu extends Activity implements View.OnClickListener
 
     public void createTetrisScreen(View v)
     {
-        Intent i = new Intent(this, TetrisScreen.class);
+        Intent i = new Intent(this, TetrisApp.class);
         startActivity(i);
     }
 }
