@@ -15,6 +15,7 @@ public class TetrisApp extends Activity
 {
     TetrisView tview = null;
     Tetris tetris = null;
+    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -66,9 +67,10 @@ public class TetrisApp extends Activity
             {
                 try
                 {
-                    Thread.sleep(1000);
+                    Thread.sleep(tetris.getSpeed());
 
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Thread.currentThread().interrupt();
                 }

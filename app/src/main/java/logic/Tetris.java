@@ -10,6 +10,7 @@ public class Tetris
 	private Tetramino secondTetra;
 	private Table table;
 	private GameState state;
+	private Level level;
 
 	public Tetris()
 	{
@@ -22,6 +23,7 @@ public class Tetris
 		this.secondTetra = new Tetramino();
 		this.table = new Table();
 		this.state = new GameState();
+		this.level = new Level();
 		firstTetra = randTetra();
 		secondTetra = randTetra();
 	}
@@ -194,6 +196,7 @@ public class Tetris
 				if(exist == true && i == Table.WIDTH-1)
 				{
 					this.deleteLine(j);
+					this.update();
 					j++;
 				}
 			}
@@ -228,5 +231,23 @@ public class Tetris
 		}
 
 		return true;
+	}
+	
+	private void update()
+	{
+		this.level.update();
+	}
+	
+	public int getSpeed()
+	{
+		return this.level.getSpeed();
+	}
+	public int getScore()
+	{
+		return this.level.getScore();
+	}
+	public int getLevel()
+	{
+		return this.level.getLevel();
 	}
 }

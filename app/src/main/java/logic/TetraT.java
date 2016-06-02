@@ -8,10 +8,10 @@ public class TetraT extends Tetramino
 		int xPos = (Table.WIDTH/2) - 1;
 		int yPos = 1;
 
-		cubesTetra.add(new Cube(xPos-1, yPos ));
-		cubesTetra.add(new Cube(xPos ,yPos));
-		cubesTetra.add(new Cube(xPos+1 ,yPos));
-		cubesTetra.add(new Cube(xPos ,yPos+1));	
+		cubesTetra.add(new Cube(Cube.CHART,xPos-1, yPos ));
+		cubesTetra.add(new Cube(Cube.CHART,xPos ,yPos));
+		cubesTetra.add(new Cube(Cube.CHART,xPos+1 ,yPos));
+		cubesTetra.add(new Cube(Cube.CHART,xPos ,yPos+1));	
 
 		rotation = Rotation.ZERO;
 		type = Type.T;

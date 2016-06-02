@@ -3,12 +3,9 @@ package com.nuno_mglhotmail.tetris;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
 import android.graphics.Bitmap;
 import logic.*;
-import android.os.Handler;
 
 /**
  * Created by nuno_ on 20-May-16.
@@ -47,6 +44,9 @@ public class TetrisView extends View
         int x = 10;
         int y = 10;
 
+        int height = options.outHeight;
+        int width  = options.outWidth;
+
         char[][] table;
         table = this.tetris.getTable();
 
@@ -54,9 +54,33 @@ public class TetrisView extends View
         {
             for (int i = 0; i < Table.WIDTH; i++)
             {
-                if (table[j][i] == '#')
+                if (table[j][i] == Cube.CHARI)
                 {
-                    canvas.drawBitmap(TetraI, x + i*115,y+j*115,null);
+                    canvas.drawBitmap(TetraI, x + i*width,y+j*height,null);
+                }
+                else if(table[j][i] == Cube.CHARJ)
+                {
+                    canvas.drawBitmap(TetraJ, x + i*width,y+j*height,null);
+                }
+                else if(table[j][i] == Cube.CHARL)
+                {
+                    canvas.drawBitmap(TetraL, x + i*width,y+j*height,null);
+                }
+                else if(table[j][i] == Cube.CHART)
+                {
+                    canvas.drawBitmap(TetraT, x + i*width,y+j*height,null);
+                }
+                else if(table[j][i] == Cube.CHARO)
+                {
+                    canvas.drawBitmap(TetraO, x + i*width,y+j*height,null);
+                }
+                else if(table[j][i] == Cube.CHARS)
+                {
+                    canvas.drawBitmap(TetraS, x + i*width,y+j*height,null);
+                }
+                else if(table[j][i] == Cube.CHARZ)
+                {
+                    canvas.drawBitmap(TetraZ, x + i*width,y+j*height,null);
                 }
             }
         }

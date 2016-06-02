@@ -1,8 +1,17 @@
 package logic;
 
-public class Cube {
+public class Cube 
+{
+	public final static char CHARS = 'S';
+	public final static char CHARZ = 'Z';
+	public final static char CHARL = 'L';
+	public final static char CHARJ = 'J';
+	public final static char CHART = 'T';
+	public final static char CHARO = 'O';
+	public final static char CHARI = 'I';
 	
-	private char symbol = '#';
+	
+	private char symbol;
 	private int posX ;
 	private int posY;
 
@@ -22,7 +31,8 @@ public class Cube {
 		posY = y;
 	}
 
-	public Cube(Cube cube) {
+	public Cube(Cube cube) 
+	{
 		symbol = cube.getSymbol();
 		posX = cube.getPosX();
 		posY = cube.getPosY();
@@ -74,14 +84,17 @@ public class Cube {
 		this.posY += -1;
 	}
 	
-	public String toString(){
+	public String toString()
+	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(symbol);
 		return sb.toString();
 	}
 	
-	public Cube clone(){
+	public Cube clone()
+	{
 		return new Cube(this);
 	}
+
 	
 }
