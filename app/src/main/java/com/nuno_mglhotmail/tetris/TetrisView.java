@@ -256,7 +256,7 @@ public class TetrisView extends View
         canvas.drawText(this.tetris.getLevelString(), x0, y0, p);
     }
 
-    @TargetApi(23)
+    @TargetApi(19)
     private void drawScore(Canvas canvas)
     {
 
@@ -270,7 +270,7 @@ public class TetrisView extends View
         p.setTypeface(Menu.tetrisfont);
         p.setStyle(Paint.Style.FILL);
         p.setTextSize((int)(screenHeight*0.05));
-        p.setLetterSpacing((float) -0.2);
+        //p.setLetterSpacing((float) -0.2);
 
         final double FACTORX0 = 0.465;
         final double FACTORY0 = 0.115;
