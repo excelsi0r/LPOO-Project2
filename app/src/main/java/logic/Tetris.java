@@ -250,4 +250,9 @@ public class Tetris
 	{
 		return this.level.getLevel();
 	}
+	
+	public char[][] getNextTetra()
+	{
+		return this.secondTetra.getTableTetra();
+	}
 }

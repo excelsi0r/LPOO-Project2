@@ -9,10 +9,10 @@ public class TetraZ extends Tetramino {
 		int xPos = (Table.WIDTH/2) - 1;
 		int yPos = 1;
 		
-		this.cubesTetra.add(new Cube(Cube.CHART, xPos-1, yPos));
-		this.cubesTetra.add(new Cube(Cube.CHART, xPos ,yPos));
-		this.cubesTetra.add(new Cube(Cube.CHART, xPos, yPos+1));
-		this.cubesTetra.add(new Cube(Cube.CHART,  xPos+1, yPos+1));
+		this.cubesTetra.add(new Cube(Cube.CHARZ, xPos-1, yPos));
+		this.cubesTetra.add(new Cube(Cube.CHARZ, xPos ,yPos));
+		this.cubesTetra.add(new Cube(Cube.CHARZ, xPos, yPos+1));
+		this.cubesTetra.add(new Cube(Cube.CHARZ,  xPos+1, yPos+1));
 		
 		rotation = Rotation.ZERO;
 		type = Type.Z;
@@ -134,5 +134,26 @@ public class TetraZ extends Tetramino {
 	
 	public String toString(){
 		return super.toString();
+	}
+	
+	public char[][] getTableTetra()
+	{
+		char[][] temptetratable = new char[TETRATABLEHEIGTH][TETRATABLEWIDTH];
+		
+		for(int j = 0; j < TETRATABLEHEIGTH; j++)
+		{
+			for(int i = 0; i < TETRATABLEWIDTH; i++)
+			{
+				temptetratable[j][i] = Table.TABLESURFACE;
+			}
+		}
+		
+		temptetratable[1][1] = Cube.CHARZ;
+		temptetratable[1][2] = Cube.CHARZ;
+		temptetratable[2][2] = Cube.CHARZ;
+		temptetratable[2][3] = Cube.CHARZ;
+		
+		return temptetratable;
+		
 	}
 }

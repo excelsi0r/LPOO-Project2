@@ -48,34 +48,160 @@ public class TetrisView extends View
         this.setSystemUiVisibility(flags);
     }
 
-    protected void drawTetris(Canvas canvas)
+    private void drawNext(Canvas canvas)
     {
+        Tetramino.Type t = this.tetris.getSecondTetra().getType();
+
+        double FACTORX0;
+        double FACTORX1;
+        double FACTORY0;
+        double FACTORY1;
+
+        if(t == Tetramino.Type.T)
+        {
+            FACTORX0 = 0.66;
+            FACTORX1 = 0.92;
+            FACTORY0 = 0.03;
+            FACTORY1 = 0.16;
+        }
+        else if(t == Tetramino.Type.O)
+        {
+            FACTORX0 = 0.69;
+            FACTORX1 = 0.95;
+            FACTORY0 = 0.03;
+            FACTORY1 = 0.16;
+        }
+        else if(t == Tetramino.Type.Z)
+        {
+            FACTORX0 = 0.65;
+            FACTORX1 = 0.91;
+            FACTORY0 = 0.03;
+            FACTORY1 = 0.16;
+        }
+        else if(t == Tetramino.Type.S)
+        {
+            FACTORX0 = 0.65;
+            FACTORX1 = 0.91;
+            FACTORY0 = 0.03;
+            FACTORY1 = 0.16;
+        }
+        else if(t == Tetramino.Type.J)
+        {
+            FACTORX0 = 0.69;
+            FACTORX1 = 0.95;
+            FACTORY0 = 0.05;
+            FACTORY1 = 0.18;
+        }
+        else if(t == Tetramino.Type.L)
+        {
+            FACTORX0 = 0.69;
+            FACTORX1 = 0.95;
+            FACTORY0 = 0.05;
+            FACTORY1 = 0.18;
+        }
+        else if(t == Tetramino.Type.I)
+        {
+            FACTORX0 = 0.69;
+            FACTORX1 = 0.95;
+            FACTORY0 = 0.01;
+            FACTORY1 = 0.14;
+        }
+        else
+        {
+            FACTORX0 = 0.69;
+            FACTORX1 = 0.95;
+            FACTORY0 = 0.03;
+            FACTORY1 = 0.16;
+        }
+
 
         int screenHeight = getHeight();
         int screenWidth = getWidth();
 
-        int x0,y0,x1,y2,tetrisWidth,tetrisHeight,cubeWidth,cubeHeight;
-        
+        int x0,y0,x1,y1,tetrisWidth,tetrisHeight,cubeWidth,cubeHeight;
+
         screenHeight = getHeight();
         screenWidth = getWidth();
 
         //CALCULATIONS FOR TABLE TETRIS
-        x0 = (int) (screenWidth*0.05);
-        y0 = (int) (screenHeight*0.21);
-        x1 = (int) (screenWidth*0.95);
-        y2 = (int) (screenHeight*0.97);
+        x0 = (int) (screenWidth* FACTORX0);
+        y0 = (int) (screenHeight*FACTORY0);
+        x1 = (int) (screenWidth* FACTORX1);
+        y1 = (int) (screenHeight*FACTORY1);
 
         tetrisWidth = x1 - x0;
-        tetrisHeight = y2 - y0;
+        tetrisHeight = y1 - y0;
+        cubeWidth = tetrisWidth/ Tetramino.TETRATABLEWIDTH;
+        cubeHeight = tetrisHeight / Tetramino.TETRATABLEHEIGTH;
+
+        Bitmap TetraItemp = createScaledBitmap(TetraI,cubeWidth,cubeHeight,true);
+        Bitmap TetraJtemp = createScaledBitmap(TetraJ,cubeWidth,cubeHeight,true);
+        Bitmap TetraLtemp = createScaledBitmap(TetraL,cubeWidth,cubeHeight,true);
+        Bitmap TetraTtemp = createScaledBitmap(TetraT,cubeWidth,cubeHeight,true);
+        Bitmap TetraStemp = createScaledBitmap(TetraS,cubeWidth,cubeHeight,true);
+        Bitmap TetraZtemp = createScaledBitmap(TetraZ,cubeWidth,cubeHeight,true);
+        Bitmap TetraOtemp = createScaledBitmap(TetraO,cubeWidth,cubeHeight,true);
+
+
+        char [][] table;
+        table = this.tetris.getNextTetra();
+
+        for(int j = 0; j < Tetramino.TETRATABLEHEIGTH; j++) {
+            for (int i = 0; i < Tetramino.TETRATABLEWIDTH; i++) {
+                if (table[j][i] == Cube.CHARI) {
+                    canvas.drawBitmap(TetraItemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                } else if (table[j][i] == Cube.CHARJ) {
+                    canvas.drawBitmap(TetraJtemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                } else if (table[j][i] == Cube.CHARL) {
+                    canvas.drawBitmap(TetraLtemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                } else if (table[j][i] == Cube.CHARZ ) {
+                    canvas.drawBitmap(TetraZtemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                }   else if (table[j][i] == Cube.CHART) {
+                    canvas.drawBitmap(TetraTtemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                } else if (table[j][i] == Cube.CHARO) {
+                    canvas.drawBitmap(TetraOtemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                } else if (table[j][i] == Cube.CHARS) {
+                    canvas.drawBitmap(TetraStemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+
+                }
+            }
+        }
+    }
+
+    protected void drawTetris(Canvas canvas)
+    {
+
+        final double FACTORX0 = 0.05;
+        final double FACTORX1 = 1 - FACTORX0;
+        final double FACTORY0 = 0.21;
+        final double FACTORY1 = 0.97;
+
+        int screenHeight = getHeight();
+        int screenWidth = getWidth();
+
+        int x0,y0,x1,y1,tetrisWidth,tetrisHeight,cubeWidth,cubeHeight;
+
+        screenHeight = getHeight();
+        screenWidth = getWidth();
+
+        //CALCULATIONS FOR TABLE TETRIS
+        x0 = (int) (screenWidth* FACTORX0);
+        y0 = (int) (screenHeight*FACTORY0);
+        x1 = (int) (screenWidth* FACTORX1);
+        y1 = (int) (screenHeight*FACTORY1);
+
+        tetrisWidth = x1 - x0;
+        tetrisHeight = y1 - y0;
         cubeWidth = tetrisWidth/ Table.WIDTH;
         cubeHeight = tetrisHeight / Table.HEIGHT;
-        TetraI = createScaledBitmap(TetraI,cubeWidth,cubeHeight,true);
-        TetraJ = createScaledBitmap(TetraJ,cubeWidth,cubeHeight,true);
-        TetraL = createScaledBitmap(TetraL,cubeWidth,cubeHeight,true);
-        TetraT = createScaledBitmap(TetraT,cubeWidth,cubeHeight,true);
-        TetraS = createScaledBitmap(TetraS,cubeWidth,cubeHeight,true);
-        TetraZ = createScaledBitmap(TetraZ,cubeWidth,cubeHeight,true);
-        TetraO = createScaledBitmap(TetraO,cubeWidth,cubeHeight,true);
+
+        Bitmap TetraItemp = createScaledBitmap(TetraI,cubeWidth,cubeHeight,true);
+        Bitmap TetraJtemp = createScaledBitmap(TetraJ,cubeWidth,cubeHeight,true);
+        Bitmap TetraLtemp = createScaledBitmap(TetraL,cubeWidth,cubeHeight,true);
+        Bitmap TetraTtemp = createScaledBitmap(TetraT,cubeWidth,cubeHeight,true);
+        Bitmap TetraStemp = createScaledBitmap(TetraS,cubeWidth,cubeHeight,true);
+        Bitmap TetraZtemp = createScaledBitmap(TetraZ,cubeWidth,cubeHeight,true);
+        Bitmap TetraOtemp = createScaledBitmap(TetraO,cubeWidth,cubeHeight,true);
 
 
         char[][] table;
@@ -84,19 +210,20 @@ public class TetrisView extends View
         for(int j = 0; j < Table.HEIGHT; j++) {
             for (int i = 0; i < Table.WIDTH; i++) {
                 if (table[j][i] == Cube.CHARI) {
-                    canvas.drawBitmap(TetraI, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                    canvas.drawBitmap(TetraItemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
                 } else if (table[j][i] == Cube.CHARJ) {
-                    canvas.drawBitmap(TetraJ, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                    canvas.drawBitmap(TetraJtemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
                 } else if (table[j][i] == Cube.CHARL) {
-                    canvas.drawBitmap(TetraL, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
-                } else if (table[j][i] == Cube.CHART) {
-                    canvas.drawBitmap(TetraT, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                    canvas.drawBitmap(TetraLtemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                } else if (table[j][i] == Cube.CHARZ ) {
+                    canvas.drawBitmap(TetraZtemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                }   else if (table[j][i] == Cube.CHART) {
+                    canvas.drawBitmap(TetraTtemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
                 } else if (table[j][i] == Cube.CHARO) {
-                    canvas.drawBitmap(TetraO, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                    canvas.drawBitmap(TetraOtemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
                 } else if (table[j][i] == Cube.CHARS) {
-                    canvas.drawBitmap(TetraS, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
-                } else if (table[j][i] == Cube.CHARZ) {
-                    canvas.drawBitmap(TetraZ, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+                    canvas.drawBitmap(TetraStemp, x0 + i * cubeWidth, y0 + j * cubeHeight, null);
+
                 }
             }
         }
@@ -107,5 +234,8 @@ public class TetrisView extends View
     {
         super.onDraw(canvas);
         drawTetris(canvas);
+        drawNext(canvas);
     }
+
+
 }

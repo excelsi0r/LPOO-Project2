@@ -7,6 +7,9 @@ public class Tetramino
 	public enum Type {J, I, T, L, O, Z, S};
 	protected enum Rotation {ZERO,ONE,TWO,THREE};
 	
+	public final static int TETRATABLEWIDTH = 4;
+	public final static int TETRATABLEHEIGTH = 4;
+	
 	protected Type type;
 	protected Rotation rotation;
 	protected ArrayList<Cube> cubesTetra;
@@ -65,5 +68,10 @@ public class Tetramino
 	public void rotate(){}
 
 	public boolean canRotate(Table table) {return false;}
+	
+	public char[][] getTableTetra()
+	{
+		return null;
+	}
 	
 }

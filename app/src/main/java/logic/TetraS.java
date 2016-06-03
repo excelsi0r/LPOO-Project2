@@ -144,4 +144,25 @@ public class TetraS extends Tetramino{
 	public String toString(){
 		return super.toString();
 	}
+	
+	public char[][] getTableTetra()
+	{
+		char[][] temptetratable = new char[TETRATABLEHEIGTH][TETRATABLEWIDTH];
+		
+		for(int j = 0; j < TETRATABLEHEIGTH; j++)
+		{
+			for(int i = 0; i < TETRATABLEWIDTH; i++)
+			{
+				temptetratable[j][i] = Table.TABLESURFACE;
+			}
+		}
+		
+		temptetratable[1][2] = Cube.CHARS;
+		temptetratable[1][3] = Cube.CHARS;
+		temptetratable[2][1] = Cube.CHARS;
+		temptetratable[2][2] = Cube.CHARS;
+		
+		return temptetratable;
+		
+	}
 }

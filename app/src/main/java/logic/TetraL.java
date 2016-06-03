@@ -255,4 +255,25 @@ public class TetraL extends Tetramino{
 	public String toString(){
 		return super.toString();
 	}
+	
+	public char[][] getTableTetra()
+	{
+		char[][] temptetratable = new char[TETRATABLEHEIGTH][TETRATABLEWIDTH];
+		
+		for(int j = 0; j < TETRATABLEHEIGTH; j++)
+		{
+			for(int i = 0; i < TETRATABLEWIDTH; i++)
+			{
+				temptetratable[j][i] = Table.TABLESURFACE;
+			}
+		}
+		
+		temptetratable[0][1] = Cube.CHARL;
+		temptetratable[1][1] = Cube.CHARL;
+		temptetratable[2][1] = Cube.CHARL;
+		temptetratable[2][2] = Cube.CHARL;
+		
+		return temptetratable;
+		
+	}
 }
