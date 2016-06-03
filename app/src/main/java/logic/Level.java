@@ -28,22 +28,32 @@ public class Level
 		this.score = 0;
 	}
 	
-	int getSpeed()
+	public int getSpeed()
 	{
 		return speed;
 	}
 	
-	int getLevel()
+	public int getLevel()
 	{
 		return level;
 	}
 	
-	int getScore()
+	public int getScore()
 	{
 		return score;
 	}
+
+	public String getLevelString()
+	{
+		return Integer.toString(this.level);
+	}
+
+	public String getScoreString()
+	{
+		return Integer.toString(score);
+	}
 	
-	void update()
+	public void update()
 	{
 		if(level == MAXLEVEL)
 		{
@@ -61,7 +71,7 @@ public class Level
 			atualizeScore();	
 		}
 	}	
-	void atualizeScore()
+	public void atualizeScore()
 	{
 		if(level == 1)
 		{

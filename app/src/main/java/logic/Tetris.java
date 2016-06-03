@@ -250,6 +250,15 @@ public class Tetris
 	{
 		return this.level.getLevel();
 	}
+	public String getScoreString()
+	{
+		return this.level.getScoreString();
+	}
+	public String getLevelString()
+	{
+		return this.level.getLevelString();
+	}
+
 	
 	public char[][] getNextTetra()
 	{

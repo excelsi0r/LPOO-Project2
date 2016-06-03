@@ -1,8 +1,12 @@
 package com.nuno_mglhotmail.tetris;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.view.View;
 import android.graphics.Bitmap;
 import logic.*;
@@ -229,13 +233,68 @@ public class TetrisView extends View
         }
     }
 
+    private void drawLevel(Canvas canvas)
+    {
+
+        int screenHeight = getHeight();
+        int screenWidth = getWidth();
+
+        Paint p = new Paint();
+        p.setColor(Color.BLACK);
+        p.setTypeface(Menu.tetrisfont);
+        p.setStyle(Paint.Style.FILL);
+        p.setTextSize((int)(screenHeight*0.05));
+
+        final double FACTORX0 = 0.148;
+        final double FACTORY0 = 0.115;
+
+        int x0 = (int) (screenWidth* FACTORX0);
+        int y0 = (int) (screenHeight*FACTORY0);
+
+
+
+        canvas.drawText(this.tetris.getLevelString(), x0, y0, p);
+    }
+
+    @TargetApi(23)
+    private void drawScore(Canvas canvas)
+    {
+
+        int score = this.tetris.getScore();
+
+        int screenHeight = getHeight();
+        int screenWidth = getWidth();
+
+        Paint p = new Paint();
+        p.setColor(Color.BLACK);
+        p.setTypeface(Menu.tetrisfont);
+        p.setStyle(Paint.Style.FILL);
+        p.setTextSize((int)(screenHeight*0.05));
+        p.setLetterSpacing((float) -0.2);
+
+        final double FACTORX0 = 0.465;
+        final double FACTORY0 = 0.115;
+
+        int x0 = (int) (screenWidth* FACTORX0);
+        int y0 = (int) (screenHeight*FACTORY0);
+
+
+
+        canvas.drawText(this.tetris.getScoreString(), x0, y0, p);
+    }
+
     @Override
     protected void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
         drawTetris(canvas);
         drawNext(canvas);
+        drawLevel(canvas);
+        drawScore(canvas);
+
     }
+
+
 
 
 }

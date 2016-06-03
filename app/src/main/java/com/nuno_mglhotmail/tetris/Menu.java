@@ -22,11 +22,13 @@ public class Menu extends Activity implements View.OnClickListener
             | View.SYSTEM_UI_FLAG_FULLSCREEN
             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
+    public static Typeface tetrisfont;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         //FONT FOR COLORS
-        final Typeface tetrisfont = Typeface.createFromAsset(getAssets(), "EarlyGameBoy.ttf");
+        tetrisfont = Typeface.createFromAsset(getAssets(), "EarlyGameBoy.ttf");
 
         super.onCreate(savedInstanceState);
         //MUSIc
