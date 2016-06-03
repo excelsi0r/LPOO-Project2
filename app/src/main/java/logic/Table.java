@@ -45,7 +45,7 @@ public class Table
 	
 	/**
 	 * Draw all Cubes already in the Table
-	 * @param table Table array where Cubes will be deployed
+	 * @param tempTable Table array where Cubes will be deployed
 	 */
 	private void drawCubesStored(char [][] tempTable)
 	{
@@ -109,6 +109,8 @@ public class Table
 
 		drawCubesStored(tempTable);
 		drawTetramino(tempTable, tetra);
+
+		//tempTable[0][0] = 'J'; for debug
 
 		return tempTable;
 	}

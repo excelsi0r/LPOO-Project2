@@ -15,6 +15,12 @@ public class Menu extends Activity implements View.OnClickListener
 {
     MediaPlayer song;
     int resumetimesiong;
+    final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -23,10 +29,10 @@ public class Menu extends Activity implements View.OnClickListener
         final Typeface tetrisfont = Typeface.createFromAsset(getAssets(), "EarlyGameBoy.ttf");
 
         super.onCreate(savedInstanceState);
-
-        //FULLSCREEN
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //MUSIc
+        song = MediaPlayer.create(this, R.raw.tetris);
+        song.setLooping(true);
+        song.start();
 
         setContentView(R.layout.activity_menu);
 
@@ -48,11 +54,7 @@ public class Menu extends Activity implements View.OnClickListener
         settings.setOnClickListener(this);
         settings.setTypeface(tetrisfont);
 
-        //MUSIc
-        song = MediaPlayer.create(this, R.raw.tetris);
-        song.setLooping(true);
-        song.start();
-
+        getWindow().getDecorView().setSystemUiVisibility(flags);
     }
 
     @Override
