@@ -7,9 +7,6 @@ import android.view.View;
 import android.content.Intent;
 import android.widget.Button;
 import android.graphics.Typeface;
-import android.view.Window;
-import android.view.WindowManager;
-
 
 public class Menu extends Activity implements View.OnClickListener
 {
@@ -83,7 +80,9 @@ public class Menu extends Activity implements View.OnClickListener
             case R.id.quit:
                 System.exit(0);
             case R.id.single:
+            {
                 createTetrisScreen(v);
+            }
 
         }
     }

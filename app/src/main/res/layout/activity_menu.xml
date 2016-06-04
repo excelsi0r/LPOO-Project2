@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.nuno_mglhotmail.tetris.Menu"
-    android:background="#2639b1"
+    android:background="@color/colorPrimaryDark"
     android:weightSum="1"
     android:gravity="top|center">
 

@@ -6,4 +6,8 @@
     <string name="quit">QUIT</string>
     <string name="Settings">SETTINGS</string>
     <string name="tetris_logo">Tetris Logo</string>
+    <string name="game">GAME</string>
+    <string name="over">OVER</string>
+    <string name="restart">RESTART</string>
+    <string name="menu">MAIN MENU</string>
 </resources>
