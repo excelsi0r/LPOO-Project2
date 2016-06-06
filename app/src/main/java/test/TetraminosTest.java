@@ -15,7 +15,6 @@ import logic.TetraZ;
 import logic.Tetramino;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Tests
@@ -55,14 +54,6 @@ public class TetraminosTest {
         y2final = tetramino.getCubesTetra().get(2).getPosY();
         y3final = tetramino.getCubesTetra().get(3).getPosY();
     }
-	
-    /*@org.junit.Test (timeout = 1000)
-    public void testDraw(){
-    	Tetris tetris =  new Tetris();
-        tetris.initialize();
-        System.out.println("Testing Draw");
-        tetris.draw();
-    }*/
     
     @org.junit.Test (timeout = 1000)
     public void testTetrasType(){
@@ -147,7 +138,7 @@ public class TetraminosTest {
     	tetra.testConstructor(tetraO, table);
     	
     	tetra.draw();
-    	tetra.deleteLine(17);
+    	tetra.deleteLine(17);//Last line to be erased
     	tetra.draw();
     	
     	System.out.println("Cubes Stored " + table.getCubesStored());

@@ -180,7 +180,7 @@ public class Tetris
 		return (tetra.canRotate(table));
 	}
 
-	public void assertLines()
+	private void assertLines()
 	{
 		for(int j = Table.HEIGHT - 1; j >= 0 ; j--)
 		{
@@ -210,7 +210,6 @@ public class Tetris
 	{
 		for(int i = 0; i < this.table.getCubesStored().size(); i++)
 		{
-			System.out.println(this.table.getCubesStored().size());
 			if(this.table.getCubesStored().get(i).getPosY() == y)
 			{
 				this.table.getCubesStored().remove(i);
