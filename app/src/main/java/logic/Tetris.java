@@ -1,5 +1,4 @@
 package logic;
-
 import java.util.Random;
 import logic.GameState.State;
 
@@ -193,7 +192,7 @@ public class Tetris
 				if(exist == false)
 					break;
 
-				if(exist == true && i == Table.WIDTH-1)
+				if(exist == true && i == Table.WIDTH - 1)
 				{
 					this.deleteLine(j);
 					this.update();
@@ -211,8 +210,12 @@ public class Tetris
 	{
 		for(int i = 0; i < this.table.getCubesStored().size(); i++)
 		{
+			System.out.println(this.table.getCubesStored().size());
 			if(this.table.getCubesStored().get(i).getPosY() == y)
+			{
 				this.table.getCubesStored().remove(i);
+				i--;
+			}
 		}
 
 		for(int i = 0; i < this.table.getCubesStored().size(); i++)
