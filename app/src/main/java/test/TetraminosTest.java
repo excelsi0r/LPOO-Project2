@@ -4,6 +4,7 @@ import logic.Tetris;
 import logic.Cube;
 import logic.GameState;
 import logic.GameState.State;
+import logic.Table;
 import logic.TetraI;
 import logic.TetraJ;
 import logic.TetraL;
@@ -14,6 +15,7 @@ import logic.TetraZ;
 import logic.Tetramino;
 import static org.junit.Assert.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Tests
@@ -54,12 +56,13 @@ public class TetraminosTest {
         y3final = tetramino.getCubesTetra().get(3).getPosY();
     }
 	
-    @org.junit.Test (timeout = 1000)
+    /*@org.junit.Test (timeout = 1000)
     public void testDraw(){
     	Tetris tetris =  new Tetris();
         tetris.initialize();
+        System.out.println("Testing Draw");
         tetris.draw();
-    }
+    }*/
     
     @org.junit.Test (timeout = 1000)
     public void testTetrasType(){
@@ -93,9 +96,65 @@ public class TetraminosTest {
     @org.junit.Test (timeout = 1000)
     public void createCube(){
     	Cube cube = new Cube();
-    	assertEquals("#", cube.clone().toString());
+  
     	cube.setSymbol('$');
     	assertEquals("$", cube.clone().toString());
+    }
+    
+    @org.junit.Test (timeout = 2000)
+    public void testLineDelete(){
+    	Tetris tetra = new Tetris();
+    	Table table = new Table();
+    	TetraJ tetraJ = new TetraJ();
+    	
+    	tetra.testConstructor(tetraJ, table);
+    	tetraJ.moveDown();
+    	tetraJ.rotate();
+    	tetraJ.rotate();
+    	tetraJ.moveLeft();
+    	tetraJ.moveLeft();
+    	tetraJ.moveLeft();
+    	
+    	for(int x = 0; x < 15; x++){
+    		tetraJ.moveDown();
+    	}
+    	table.storeTetramino(tetraJ);
+    	
+    	
+    	TetraI tetraI = new TetraI();
+    	tetra.testConstructor(tetraI, table);
+    	for(int y = 0; y < 16; y++){
+    		tetraI.moveDown();
+    	}
+    	table.storeTetramino(tetraI);
+    	
+    	
+    	TetraT tetraT = new TetraT();
+    	tetra.testConstructor(tetraT, table);
+    	
+    	tetraT.moveDown();
+    	tetraT.rotate();
+    	tetraT.rotate();
+    	for(int x = 0; x < 4; x++){
+    		tetraT.moveRight();
+    	}
+    	for(int y = 0; y < 15; y++){
+    		tetraT.moveDown();
+    	}
+    	table.storeTetramino(tetraT);
+    	
+    	TetraO tetraO = new TetraO();
+    	tetra.testConstructor(tetraO, table);
+    	
+    	tetra.draw();
+    	tetra.deleteLine(17);
+    	tetra.draw();
+    	
+    	System.out.println("Cubes Stored " + table.getCubesStored());
+    	
+    	assertEquals(2, table.getCubesStored().size());
+    	assertEquals("[J, T]", table.getCubesStored().toString());
+    	
     }
     
     @org.junit.Test (timeout = 1000)
@@ -208,9 +267,10 @@ public class TetraminosTest {
         
     }
     
-    @org.junit.Test (timeout = 2000)
+    @org.junit.Test (timeout = 1000)
     public void testRotaion() {
     	Tetris tetris =  new Tetris();
+    	Table table = new Table();
     	Tetramino firstTetra;
     	
     	ArrayList<Tetramino> tetras = new ArrayList<>();
@@ -224,7 +284,7 @@ public class TetraminosTest {
     	
     	for (Tetramino tetramino : tetras) {
     		
-    		tetris.testConstructor(tetramino);
+    		tetris.testConstructor(tetramino, table);
     		
     		firstTetra = tetris.getFirstTetra();
     		

@@ -27,9 +27,9 @@ public class Tetris
 		secondTetra = randTetra();
 	}
 	
-	public void testConstructor(Tetramino tetra){
+	public void testConstructor(Tetramino tetra, Table table){
 		this.firstTetra = tetra;
-		this.table = new Table();
+		this.table = table;
 		this.state = new GameState();
 	}
 
@@ -180,7 +180,7 @@ public class Tetris
 		return (tetra.canRotate(table));
 	}
 
-	private void assertLines()
+	public void assertLines()
 	{
 		for(int j = Table.HEIGHT - 1; j >= 0 ; j--)
 		{
@@ -206,7 +206,7 @@ public class Tetris
 	 * Delete lines and push down Tetraminos above removed lines
 	 * @param y Cube position to be removed
      */
-	private void deleteLine(int y)
+	public void deleteLine(int y)
 	{
 		for(int i = 0; i < this.table.getCubesStored().size(); i++)
 		{
@@ -253,10 +253,12 @@ public class Tetris
 	{
 		return this.level.getLevel();
 	}
+
 	public String getScoreString()
 	{
 		return this.level.getScoreString();
 	}
+
 	public String getLevelString()
 	{
 		return this.level.getLevelString();

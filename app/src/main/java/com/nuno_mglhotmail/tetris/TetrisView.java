@@ -269,14 +269,14 @@ public class TetrisView extends View
         p.setColor(Color.BLACK);
         p.setTypeface(Menu.tetrisfont);
         p.setStyle(Paint.Style.FILL);
-        p.setTextSize((int)(screenHeight*0.05));
+        p.setTextSize((int)(screenHeight * 0.05));
         //p.setLetterSpacing((float) -0.2);
 
         final double FACTORX0 = 0.465;
         final double FACTORY0 = 0.115;
 
-        int x0 = (int) (screenWidth* FACTORX0);
-        int y0 = (int) (screenHeight*FACTORY0);
+        int x0 = (int) (screenWidth * FACTORX0);
+        int y0 = (int) (screenHeight * FACTORY0);
 
 
 
@@ -291,10 +291,6 @@ public class TetrisView extends View
         drawNext(canvas);
         drawLevel(canvas);
         drawScore(canvas);
-
     }
-
-
-
 
 }
