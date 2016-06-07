@@ -1,10 +1,14 @@
 package logic;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * 
+ * Table Class. 2x2 Matrix. With Limts as paramethers and an Array List of Stored Cubes
+ *
+ */
 public class Table 
 {
-	
+
 	public final static int HEIGHT = 18;
 	public final static int WIDTH = 10;
 	public final static char TABLESURFACE =  ' ';
@@ -12,11 +16,17 @@ public class Table
 	
 	private ArrayList<Cube> cubesStored; //Cubes in the table
 	
+	/**
+	 * Default Constructor for Table
+	 */
 	public Table()
 	{
 		cubesStored = new ArrayList<Cube>();
 	}
-	
+	/**
+	 * draw Current table and tetramino in console
+	 * @param tetra
+	 */
 	public void drawTable(Tetramino tetra)
 	{
 		char[][] tempTable = new char[HEIGHT][WIDTH];
@@ -26,7 +36,10 @@ public class Table
 		drawTetramino(tempTable, tetra);
 		printTable(tempTable);
 	}
-
+	/**
+	 * Create the Table. fills with TABLESURFACE
+	 * @param tableBoard
+	 */
 	private void buildTable(char[][] tableBoard)
 	{
 		for(char[] row : tableBoard)
@@ -34,7 +47,9 @@ public class Table
 			Arrays.fill(row, TABLESURFACE);
 		}
 	}
-	
+	/**
+	 * Giving borders to the comand line interface
+	 */
 	private void buildBorders()
 	{
 		for (int i = 0; i < WIDTH; i++ ) 
@@ -102,7 +117,11 @@ public class Table
 		buildBorders();
 		System.out.println();
 	}
-	
+	/**
+	 * return the Table with the tetramino
+	 * @param tetra
+	 * @return
+	 */
 	public char[][] getTable(Tetramino tetra)
 	{
 		char[][] tempTable = new char[HEIGHT][WIDTH];
@@ -139,7 +158,10 @@ public class Table
 	{
 		return cubesStored;
 	}
-	
+	/**
+	 * Stores a tetramino in the Array List
+	 * @param tetra
+	 */
 	public void storeTetramino(Tetramino tetra)
 	{
 		for(int i = 0; i < tetra.getCubesTetra().size(); i++)

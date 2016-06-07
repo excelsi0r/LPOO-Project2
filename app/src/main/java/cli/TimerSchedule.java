@@ -3,6 +3,12 @@ package cli;
 import java.util.TimerTask;
 import logic.Tetris;
 
+
+/**
+ * 
+ * Schedule TimerTask used to create timer to run the Tetris
+ *
+ */
 public class TimerSchedule extends TimerTask
 {
 

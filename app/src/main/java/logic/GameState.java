@@ -1,8 +1,11 @@
 package logic;
 
+/**
+ * GameState Class Controlling the diferent states of the game
+ */
 public class GameState 
 {
-	public enum State { PLAYING, WIN, LOST };
+	public enum State { PLAYING, LOST };
 	
 	private State state;
 	
