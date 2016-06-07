@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.widget.Button;
 import android.graphics.Typeface;
 
+/**
+ * Menu Class Ativity. With a song, Font and Flags
+ */
 public class Menu extends Activity implements View.OnClickListener
 {
     MediaPlayer song;
@@ -81,6 +84,10 @@ public class Menu extends Activity implements View.OnClickListener
         }
     }
 
+    /**
+     * New Tetris Activity
+     * @param v
+     */
     public void createTetrisScreen(View v)
     {
         Intent i = new Intent(this, TetrisApp.class);

@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * Created by nuno_ on 01-Jun-16.
+ * Swipe listener. To Swipe left, down, up, right and double tap
  */
 public class OnSwipeTouchListener implements View.OnTouchListener
 {

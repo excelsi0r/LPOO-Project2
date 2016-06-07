@@ -13,6 +13,10 @@ import android.view.View;
 import android.view.Window;
 import logic.*;
 
+/**
+ * Tetris Activity.
+ */
+
 public class TetrisApp extends Activity
 {
     TetrisView tview = null;
@@ -84,6 +88,9 @@ public class TetrisApp extends Activity
     }
 
 
+    /**
+     * Class to Refresh
+     */
     class Refresh implements Runnable
     {
         public void run()
@@ -115,8 +122,6 @@ public class TetrisApp extends Activity
                     }
                 });
 
-
-
             }
 
             if(state == 0)
@@ -128,6 +133,9 @@ public class TetrisApp extends Activity
         }
     }
 
+    /**
+     * Create GameOver
+     */
     public void createGameOver()
     {
         Intent i = new Intent(this, GameOver.class);

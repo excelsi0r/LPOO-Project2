@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import logic.Tetris;
 
+/**
+ * Gameover Class. Whe a Tetris Game is lost. This Activity is created
+ */
+
 public class GameOver extends Activity implements View.OnClickListener
 {
 
@@ -54,12 +58,19 @@ public class GameOver extends Activity implements View.OnClickListener
         }
     }
 
+    /**
+     * Create a new Tetris
+     * @param v
+     */
     public void createTetrisScreen(View v)
     {
         Intent i = new Intent(this, TetrisApp.class);
         startActivity(i);
     }
 
+    /**
+     * Finish Aplication
+     */
     public void returnMenu()
     {
         finish();
