@@ -164,8 +164,6 @@ public class TetraminosTest {
     	
     	state.setState(State.PLAYING);
     	assertEquals(State.PLAYING, state.getState());
-    	state.setState(State.WIN);
-    	assertEquals(State.WIN, state.getState());
     	state.setState(State.LOST);
     	assertEquals(State.LOST, state.getState());
     	
