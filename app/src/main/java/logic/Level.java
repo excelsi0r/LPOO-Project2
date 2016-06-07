@@ -75,6 +75,10 @@ public class Level
 	 */
 	public void update()
 	{
+		if(score > 999) {
+			score = 0;
+		}
+
 		if(level == MAXLEVEL)
 		{
 			numLines++;
@@ -88,7 +92,7 @@ public class Level
 				numLines = 0;
 				level++;
 			}
-			atualizeScore();	
+			atualizeScore();
 		}
 	}
 	/**

@@ -262,6 +262,13 @@ public class TetrisView extends View
 
         int score = this.tetris.getScore();
 
+        int nDigits = 1;
+
+        if(score > 9 && score < 100)
+            nDigits = 2;
+        else if(score > 99)
+            nDigits = 3;
+
         int screenHeight = getHeight();
         int screenWidth = getWidth();
 
@@ -269,18 +276,26 @@ public class TetrisView extends View
         p.setColor(Color.BLACK);
         p.setTypeface(Menu.tetrisfont);
         p.setStyle(Paint.Style.FILL);
-        p.setTextSize((int)(screenHeight * 0.05));
+        p.setTextSize((int)(screenHeight * 0.04));
         //p.setLetterSpacing((float) -0.2);
 
-        final double FACTORX0 = 0.465;
-        final double FACTORY0 = 0.115;
-
+        double FACTORX0 = 0.55;
+        double FACTORY0 = 0.115;
+        double WIDTH = (FACTORX0 - 0.1);
         int x0 = (int) (screenWidth * FACTORX0);
         int y0 = (int) (screenHeight * FACTORY0);
 
-
-
-        canvas.drawText(this.tetris.getScoreString(), x0, y0, p);
+        if(nDigits == 1) {
+            canvas.drawText(this.tetris.getScoreString(), x0, y0, p);
+        }
+        else if(nDigits == 2){
+            x0 = (int) (screenWidth * WIDTH);
+            canvas.drawText(this.tetris.getScoreString(), x0, y0, p);
+        }
+        else if(nDigits == 3){
+            x0 = (int) (screenWidth * (WIDTH - 0.05));
+            canvas.drawText(this.tetris.getScoreString(), x0, y0, p);
+        }
     }
 
     @Override
