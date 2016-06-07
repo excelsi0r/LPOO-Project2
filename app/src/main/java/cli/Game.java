@@ -6,6 +6,13 @@ import logic.GameState.State;
 import java.util.Scanner;
 import java.util.Timer;
 
+
+/**
+ * 
+ * Class Game
+ * Used to Run the tetris in the Comand Line interface
+ *
+ */
 public class Game
 {
 	private static final char DOWN = 's';
@@ -57,11 +64,7 @@ public class Game
 
 		}while(tetris.getState() == State.PLAYING);
 
-		if(tetris.getState() == State.WIN)
-		{
-			System.out.println("You win!");
-		}
-		else
+		if(tetris.getState() == State.LOST)
 		{
 			System.out.println("You lost!");
 		}

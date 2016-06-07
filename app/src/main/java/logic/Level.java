@@ -1,7 +1,8 @@
 package logic;
 
 /**
- * Created by nuno_ on 02-Jun-16.
+ * Level Class controls the Speed of the tetris, level and scores. Also have max lines and max level.
+ * Also controles the calculation for the score.
  */
 public class Level 
 {
@@ -19,7 +20,9 @@ public class Level
 	private int MAXLEVEL = 10;
 	
 	
-	
+	/**
+	 * Default constructor for level. Initializes variables with corresponding values.
+	 */
 	public Level()
 	{
 		this.speed = SPEED1;
@@ -27,32 +30,49 @@ public class Level
 		this.numLines = 0;
 		this.score = 0;
 	}
-	
+	/**
+	 * Returns the speed
+	 * @return speed
+	 */
 	public int getSpeed()
 	{
 		return speed;
 	}
-	
+	/**
+	 * Returns the level
+	 * @return level
+	 */
 	public int getLevel()
 	{
 		return level;
 	}
-	
+	/**
+	 * Returns the Score
+	 * @return score
+	 */
 	public int getScore()
 	{
 		return score;
 	}
-
+	/**
+	 * Return level as string
+	 * @return level
+	 */
 	public String getLevelString()
 	{
 		return Integer.toString(this.level);
 	}
-
+	/**
+	 * Returns the Score as String
+	 * @return score
+	 */
 	public String getScoreString()
 	{
 		return Integer.toString(score);
 	}
-	
+	/**
+	 * Function to update the Level acording to the lines done.
+	 */
 	public void update()
 	{
 		if(level == MAXLEVEL)
@@ -70,7 +90,10 @@ public class Level
 			}
 			atualizeScore();	
 		}
-	}	
+	}
+	/**
+	 * Function to actualize the score acording to the level. Also asserts the speed acordingly
+	 */
 	public void atualizeScore()
 	{
 		if(level == 1)
