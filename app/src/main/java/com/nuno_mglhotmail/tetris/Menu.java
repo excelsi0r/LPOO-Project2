@@ -11,7 +11,8 @@ import android.graphics.Typeface;
 public class Menu extends Activity implements View.OnClickListener
 {
     MediaPlayer song;
-    int resumetimesiong;
+    public static int resumetimesiong;
+
     final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -35,7 +36,6 @@ public class Menu extends Activity implements View.OnClickListener
 
         setContentView(R.layout.activity_menu);
 
-
         Button quit = (Button) findViewById(R.id.quit);
         quit.setOnClickListener(this);
         quit.setTypeface(tetrisfont);
@@ -45,14 +45,6 @@ public class Menu extends Activity implements View.OnClickListener
         single.setTypeface(tetrisfont);
 
 
-        Button versus = (Button) findViewById(R.id.versus);
-        versus.setOnClickListener(this);
-        versus.setTypeface(tetrisfont);
-
-        Button settings = (Button) findViewById(R.id.settings);
-        settings.setOnClickListener(this);
-        settings.setTypeface(tetrisfont);
-
         getWindow().getDecorView().setSystemUiVisibility(flags);
     }
 
@@ -60,6 +52,9 @@ public class Menu extends Activity implements View.OnClickListener
     protected void onResume()
     {
         super.onResume();
+        song.release();
+        song = MediaPlayer.create(this, R.raw.tetris);
+        song.setLooping(true);
         song.seekTo(resumetimesiong);
         song.start();
     }
@@ -68,7 +63,7 @@ public class Menu extends Activity implements View.OnClickListener
     protected void onPause()
     {
         super.onPause();
-        song.pause();
+        song.stop();
         resumetimesiong = song.getCurrentPosition();
     }
 
@@ -83,7 +78,6 @@ public class Menu extends Activity implements View.OnClickListener
             {
                 createTetrisScreen(v);
             }
-
         }
     }
 
@@ -92,4 +86,12 @@ public class Menu extends Activity implements View.OnClickListener
         Intent i = new Intent(this, TetrisApp.class);
         startActivity(i);
     }
+
+    /*
+    public void createVersus(View v)
+    {
+        Intent i = new Intent(this, BluetoothTetris.class);
+        startActivity(i);
+    }
+    */
 }

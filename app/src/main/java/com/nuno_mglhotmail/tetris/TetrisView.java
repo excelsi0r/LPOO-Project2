@@ -47,7 +47,7 @@ public class TetrisView extends View
         TetraS = BitmapFactory.decodeResource(getResources(), R.drawable.tetras, options);
         TetraZ = BitmapFactory.decodeResource(getResources(), R.drawable.tetras, options);
         TetraO = BitmapFactory.decodeResource(getResources(), R.drawable.tetrao, options);
-        this.setBackground(getResources().getDrawable(R.drawable.fundotetris));
+        this.setBackground(getResources().getDrawable(R.drawable.tetirsbakground));
         this.tetris = t;
         this.setSystemUiVisibility(flags);
     }
@@ -77,15 +77,15 @@ public class TetrisView extends View
         }
         else if(t == Tetramino.Type.Z)
         {
-            FACTORX0 = 0.65;
-            FACTORX1 = 0.91;
+            FACTORX0 = 0.66;
+            FACTORX1 = 0.92;
             FACTORY0 = 0.03;
             FACTORY1 = 0.16;
         }
         else if(t == Tetramino.Type.S)
         {
-            FACTORX0 = 0.65;
-            FACTORX1 = 0.91;
+            FACTORX0 = 0.66;
+            FACTORX1 = 0.92;
             FACTORY0 = 0.03;
             FACTORY1 = 0.16;
         }
@@ -105,10 +105,10 @@ public class TetrisView extends View
         }
         else if(t == Tetramino.Type.I)
         {
-            FACTORX0 = 0.69;
-            FACTORX1 = 0.95;
-            FACTORY0 = 0.01;
-            FACTORY1 = 0.14;
+            FACTORX0 = 0.72;
+            FACTORX1 = 0.93;
+            FACTORY0 = 0.02;
+            FACTORY1 = 0.15;
         }
         else
         {
@@ -175,10 +175,10 @@ public class TetrisView extends View
     protected void drawTetris(Canvas canvas)
     {
 
-        final double FACTORX0 = 0.05;
+        final double FACTORX0 = 0.105;
         final double FACTORX1 = 1 - FACTORX0;
-        final double FACTORY0 = 0.21;
-        final double FACTORY1 = 0.97;
+        final double FACTORY0 = 0.236;
+        final double FACTORY1 = 0.9484;
 
         int screenHeight = getHeight();
         int screenWidth = getWidth();

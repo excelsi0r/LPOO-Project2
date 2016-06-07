@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -17,6 +18,8 @@ public class TetrisApp extends Activity
     TetrisView tview = null;
     Tetris tetris = null;
     int state = 0;
+    Thread thread;
+    MediaPlayer song;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -26,6 +29,12 @@ public class TetrisApp extends Activity
         tetris = new Tetris();
         this.tetris.initialize();
         tview = new TetrisView(this,tetris);
+
+        song = MediaPlayer.create(this, R.raw.tetris);
+        song.seekTo(Menu.resumetimesiong);
+        song.setLooping(true);
+        song.start();
+
         tview.setOnTouchListener(new OnSwipeTouchListener(TetrisApp.this)
         {
             public void onSwipeRight()
@@ -68,7 +77,10 @@ public class TetrisApp extends Activity
 
         });
         setContentView(tview);
-        new Thread(new Refresh()).start();
+        thread = new Thread(new Refresh());
+        thread.start();
+
+
     }
 
 
@@ -80,8 +92,7 @@ public class TetrisApp extends Activity
             {
                 try
                 {
-                    //Thread.sleep(tetris.getSpeed());
-                    Thread.sleep(100);
+                    Thread.sleep(tetris.getSpeed());
 
                 }
                 catch (Exception ex)
@@ -94,7 +105,6 @@ public class TetrisApp extends Activity
                     public void run()
                     {
                         tetris.moveDown();
-
                         tview.invalidate();
 
                         System.out.println(Thread.activeCount());
@@ -104,15 +114,17 @@ public class TetrisApp extends Activity
                         }
                     }
                 });
+
+
+
             }
 
             if(state == 0)
             {
+                state = 1;
                 finish();
                 createGameOver();
             }
-
-
         }
     }
 
@@ -120,6 +132,28 @@ public class TetrisApp extends Activity
     {
         Intent i = new Intent(this, GameOver.class);
         startActivity(i);
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        song.stop();
+        Menu.resumetimesiong = song.getCurrentPosition();
+        state = 1;
+        thread.interrupt();
+        finish();
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        song.release();
+        song = MediaPlayer.create(this, R.raw.tetris);
+        song.setLooping(true);
+        song.seekTo(Menu.resumetimesiong);
+        song.start();
     }
 
 

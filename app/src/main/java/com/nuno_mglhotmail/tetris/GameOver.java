@@ -27,9 +27,11 @@ public class GameOver extends Activity implements View.OnClickListener
         menu.setTypeface(Menu.tetrisfont);
 
         TextView game = (TextView) findViewById(R.id.game);
+        game.setKeyListener(null);
         game.setTypeface(Menu.tetrisfont);
 
         TextView over = (TextView) findViewById(R.id.over);
+        over.setKeyListener(null);
         over.setTypeface(Menu.tetrisfont);
 
     }

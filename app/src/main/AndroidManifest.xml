@@ -2,13 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nuno_mglhotmail.tetris">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
-        <uses-permission android:name="android.permission.BLUETOOTH" />
+
+
+
         <activity android:name=".Menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,8 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TetrisApp"></activity>
-        <activity android:name=".GameOver"></activity>
+        <activity android:name=".TetrisApp" />
+        <activity android:name=".GameOver" />
+        <activity android:name=".BluetoothTetris"></activity>
     </application>
 
 </manifest>

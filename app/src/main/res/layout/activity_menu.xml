@@ -21,17 +21,18 @@
         android:layout_weight="0.21" />
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
         android:src="@drawable/logo"
-        android:contentDescription="@string/tetris_logo" />
+        android:contentDescription="@string/tetris_logo"
+        android:layout_weight="0.04" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.30" />
+        android:layout_weight="0.31" />
 
     <Button
         android:layout_width="290dp"
@@ -44,34 +45,11 @@
         android:backgroundTint="@color/colorAccent"
         android:textColor="@color/colorPrimaryDark" />
 
-    <Button
-        android:layout_width="290dp"
-        android:layout_height="45dp"
-        android:text="@string/versus"
-        android:id="@+id/versus"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_weight="0.10"
-        android:backgroundTint="@color/colorAccent"
-        android:textColor="@color/colorPrimaryDark" />
-
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.09" />
-
-    <Button
-        android:layout_width="290dp"
-        android:layout_height="45dp"
-        android:text="@string/Settings"
-        android:id="@+id/settings"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:layout_weight="0.10"
-        android:backgroundTint="@color/colorAccent"
-        android:textColor="@color/colorPrimaryDark"
-        android:layout_gravity="center_horizontal" />
+        android:layout_weight="0.04" />
 
     <Button
         android:layout_width="290dp"
