@@ -233,8 +233,20 @@ public class TetrisView extends View
         }
     }
 
+
+    private void draw(int numOfDigits){
+
+    }
+
     private void drawLevel(Canvas canvas)
     {
+
+        int level = this.tetris.getLevel();
+
+        int nDigits = 1;
+
+        if(level > 9)
+            nDigits = 2;
 
         int screenHeight = getHeight();
         int screenWidth = getWidth();
@@ -243,17 +255,25 @@ public class TetrisView extends View
         p.setColor(Color.BLACK);
         p.setTypeface(Menu.tetrisfont);
         p.setStyle(Paint.Style.FILL);
-        p.setTextSize((int)(screenHeight*0.05));
+        p.setTextSize((int)(screenHeight * 0.03));
 
-        final double FACTORX0 = 0.148;
+        final double FACTORX0 = 0.160;
         final double FACTORY0 = 0.115;
 
-        int x0 = (int) (screenWidth* FACTORX0);
-        int y0 = (int) (screenHeight*FACTORY0);
+        double WIDTH = (FACTORX0 - 0.03);
+
+        int x0 = (int) (screenWidth * FACTORX0);
+        int y0 = (int) (screenHeight * FACTORY0);
 
 
-
-        canvas.drawText(this.tetris.getLevelString(), x0, y0, p);
+        if(nDigits == 1) {
+            //x0 = (int) (screenWidth * WIDTH);
+            canvas.drawText(this.tetris.getLevelString(), x0, y0, p);
+        }
+        else if(nDigits == 2){
+            x0 = (int) (screenWidth * WIDTH);
+            canvas.drawText(this.tetris.getLevelString(), x0, y0, p);
+        }
     }
 
     @TargetApi(19)
@@ -276,12 +296,13 @@ public class TetrisView extends View
         p.setColor(Color.BLACK);
         p.setTypeface(Menu.tetrisfont);
         p.setStyle(Paint.Style.FILL);
-        p.setTextSize((int)(screenHeight * 0.04));
+        p.setTextSize((int)(screenHeight * 0.03));
         //p.setLetterSpacing((float) -0.2);
 
-        double FACTORX0 = 0.55;
+        double FACTORX0 = 0.475;
         double FACTORY0 = 0.115;
-        double WIDTH = (FACTORX0 - 0.1);
+        double WIDTH = (FACTORX0 - 0.02);
+
         int x0 = (int) (screenWidth * FACTORX0);
         int y0 = (int) (screenHeight * FACTORY0);
 
@@ -293,7 +314,7 @@ public class TetrisView extends View
             canvas.drawText(this.tetris.getScoreString(), x0, y0, p);
         }
         else if(nDigits == 3){
-            x0 = (int) (screenWidth * (WIDTH - 0.05));
+            x0 = (int) (screenWidth * (WIDTH - 0.03));
             canvas.drawText(this.tetris.getScoreString(), x0, y0, p);
         }
     }
